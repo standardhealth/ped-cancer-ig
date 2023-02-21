@@ -1,0 +1,6 @@
+Alias:   NCIT = http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl
+Alias:   SCT = http://snomed.info/sct|http://snomed.info/sct/900000000000207008   // Latest international version
+Alias:   IDTYPE = http://terminology.hl7.org/CodeSystem/v2-0203
+Alias:   ICD10 = http://hl7.org/fhir/sid/icd-10
+Alias:   UCUM = http://unitsofmeasure.org
+Alias:   MEDDRA = http://terminology.hl7.org/CodeSystem/MDRAE
