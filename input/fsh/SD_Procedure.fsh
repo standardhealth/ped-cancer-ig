@@ -39,6 +39,7 @@ ValueSet: SurgicalResectionOutcomeVS
 Id: os-surgical-resection-outcome-vs
 Title: "Surgical Resection Outcome Value Set"
 Description:  "Codes that describe the macroscopic outcome surgical resections. Microscopic finding of tumor margine should be reported using the SurgicalMarginFinding profile"
+* ^experimental = true
 * NCIT#C131672 "Gross Total Resection"
 * NCIT#C131680 "Partial Resection"
 
