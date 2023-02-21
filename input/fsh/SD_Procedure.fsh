@@ -6,7 +6,7 @@ Title: "Surgical Resection"
 Description: "Surgery to remove tissue or part or all of an organ. (Source: NCI Dictionary of Cancer Terms)"
 * code from SurgicalRemovalVS
 * extension[margins].valueCodeableConcept from ResectionMarginVS
-
+  
 
 
 
