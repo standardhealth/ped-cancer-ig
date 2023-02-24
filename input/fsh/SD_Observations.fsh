@@ -13,18 +13,43 @@ Description: "The percentage necrosis for a tumor or tumors"
 * valueQuantity = UCUM#%
 * value[x] ^definition = "Percentage necrosis in tumor or overall."
 
-Profile: SurgicalMarginFinding
+Profile: SurgicalTumorMargin
 Parent: USCoreObservationLab
-Id: os-surgical-margin-finding
-Title: "Surgical Margin Finding"
-Description: "Result of macro- or microscopic examination of the margins of resected tumor"
+Id: os-surgical-tumor-margin
+Title: "Surgical Margin"
+Description: "Result of macro- or microscopic examination of the margins of a resected tumor."
 * code = SCT#395536008 "Surgical margin finding (finding)"
 * value[x] only CodeableConcept
-* value[x] from SurgicalMarginFindingVS
+* value[x] from SurgicalMarginVS (extensible)
 
-ValueSet: SurgicalMarginFindingVS
-Id: os-surgical-margin-finding-vs
-Title: "Surgical Margin Finding Value Set"
-Description:  "Codes describing the result of macro- or microscopic examination of the margins of a resected tumor"
+ValueSet: SurgicalMarginVS
+Id: os-surgical-margin-vs
+Title: "Surgical Margin Value Set"
+Description:  "Codes describing the result of macro- or microscopic examination of the margins of a resected tumor."
 * insert SNOMEDCopyrightForVS
 * include codes from system SCT where concept is-a #395536008 "Surgical margin finding (finding)"
+
+Profile: HistologicalGrade
+Parent: us-core-observation-lab
+Id: os-histological-HistologicGradeFindingVS
+Title: "Histological Grade"
+Description: "Histological grade determined from examination of tumor sample."
+* code = LNC#21858-6 // "Grade Cancer"
+* value[x] only CodeableConcept
+* value[x] from HistologicGradeVS (extensible)
+* method from HistologicalGradingSystemVS (extensible)
+
+ValueSet: HistologicalGradeVS
+Id: os-histological-grade-vs
+Title: "Histological Grade Value Set"
+Description:  "A description of a tumor based on how abnormal the cancer cells and tissue look under a microscope and how quickly the cancer cells are likely to grow and spread."
+* insert SNOMEDCopyrightForVS
+* include codes from system SCT where concept is-a #370114008 "Histological grades (qualifier value)"
+
+ValueSet: HistologicalGradingSystemVS
+Id: os-histological-grading-system-vs
+Title: "Histological Grade Value Set"
+Description:  "A description of a tumor based on how abnormal the cancer cells and tissue look under a microscope and how quickly the cancer cells are likely to grow and spread."
+* insert SNOMEDCopyrightForVS
+* include codes from system SCT where concept is-a #277457005 "Histological grading systems (staging scale)"
+
