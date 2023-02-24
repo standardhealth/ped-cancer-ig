@@ -36,7 +36,7 @@ Title: "Histological Grade"
 Description: "Histological grade determined from examination of tumor sample."
 * code = LNC#21858-6 // "Grade Cancer"
 * value[x] only CodeableConcept
-* value[x] from HistologicGradeVS (extensible)
+* value[x] from HistologicalGradeVS (extensible)
 * method from HistologicalGradingSystemVS (extensible)
 
 ValueSet: HistologicalGradeVS

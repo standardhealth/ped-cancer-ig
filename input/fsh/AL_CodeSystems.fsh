@@ -4,3 +4,4 @@ Alias:   IDTYPE = http://terminology.hl7.org/CodeSystem/v2-0203
 Alias:   ICD10 = http://hl7.org/fhir/sid/icd-10
 Alias:   UCUM = http://unitsofmeasure.org
 Alias:   MEDDRA = http://terminology.hl7.org/CodeSystem/MDRAE
+Alias:   LNC = http://loinc.org
