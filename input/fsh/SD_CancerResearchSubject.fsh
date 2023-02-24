@@ -22,15 +22,7 @@ Title: "Reason Off Study Value Set"
 Description: "Value set for reasons a patient leaves a clinical study."
 * insert SNOMEDCopyrightForVS
 * ^experimental = true
-* SCT#407563006 "Treatment not tolerated (situation)"
-* SCT#182992009 "Treatment completed (situation)"
-* SCT#419620001 "Death (event)"
-* SCT#266721009 "No response to treatment (situation)"
-* SCT#160932005 "Financial problem (finding)"
-* SCT#105480006 "Refusal of treatment by patient (situation)"
-* SCT#184081006 "Patient has moved away (finding)"
-* SCT#309846006 "Treatment not available (situation)"
-* SCT#399307001 "Lost to follow-up (finding)"
+* include codes from valueset TreatmentTerminationReasonVS 
 * SCT#7058009 "Noncompliance with treatment (finding)" //currently not in TerminationReason
 
 //PCDC codes that are covered by the terminationReason codes above, but don't exactly match
