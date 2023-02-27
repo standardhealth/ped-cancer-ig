@@ -44,11 +44,8 @@ pages:
   index.md:
     title: Home
 #   implementation.xml:
-#   examples.xml:
-#     title: Examples Overview
-#     simpleExamples.xml:
-#     complexExamples.xml:
-#
+  pcdc.md:
+    title: PCDC to FHIR Mapping
 #
 # The parameters property represents IG.definition.parameter. Rather
 # than a list of code/value pairs (as in the ImplementationGuide
