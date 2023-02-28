@@ -26,6 +26,13 @@ Title: "Surgical Reconstruction Procedure"
 Description: "Surgery to restore functionality or appearance following cancer surgery. Can be part of a surgical procedure that involves other steps, such as resection."  // Cancer surgery only?
 * code from SurgicalReconstructionProcedureVS
 
+Profile: SurgicalAmputationProcedure
+Parent: CancerRelatedSurgicalProcedure
+Id: os-surgical-amputation-procedure
+Title: "Surgical Amputation Procedure"
+Description: "Surgery to remove a limb (arm or leg) or other body part because of cancer. Can be part of a surgical procedure that involves other steps, such as reconstruction."  // Cancer surgery only?
+* code from SurgicalAmputationProcedureVS
+
 /*--- VALUE SETS ----*/
 
 ValueSet: SurgicalResectionProcedureVS
@@ -56,3 +63,10 @@ Title: "Surgical Reconstruction Procedure Value Set"
 Description:  "Codes that describe surgical reconstruction."
 * insert SNOMEDCopyrightForVS
 * include codes from system SCT where concept is-a #122465003 "Reconstruction procedure (procedure)"
+
+ValueSet: SurgicalAmputationProcedureVS
+Id: os-surgical-amputation-procedure-vs
+Title: "Surgical Amputation Procedure Value Set"
+Description:  "Codes that describe surgical amputation."
+* insert SNOMEDCopyrightForVS
+* include codes from system SCT where concept is-a #81723002 "Amputation (procedure)"
