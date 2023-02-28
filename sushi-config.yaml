@@ -45,7 +45,7 @@ pages:
     title: Home
 #   implementation.xml:
   pcdc.md:
-    title: PCDC to FHIR Mapping
+    title: PCDC Mapping to FHIR
 #
 # The parameters property represents IG.definition.parameter. Rather
 # than a list of code/value pairs (as in the ImplementationGuide
@@ -70,6 +70,7 @@ pages:
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
 menu:
   Home: index.html
+  PCDC-to-FHIR: pcdc.html
   Artifacts: artifacts.html
 
 # ╭───────────────────────────Less Common Implementation Guide Properties──────────────────────────╮

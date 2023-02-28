@@ -13,8 +13,7 @@ Extension: ReasonOffStudy
 Id: os-reason-off-study
 Title:  "Reason Off Therapy or Study"
 Description: "This variable indicates the reason a patient left a clinical study."
-//* . ^code = NCIT#C173519
-//// Above generates IGPub error: Rule sdf-9: 'In any snapshot or differential, no label, code or requirements on an element without a "." in the path (e.g. the first element)' Failed
+* ^url = "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C173519"
 * value[x] only CodeableConcept
 * value[x] from ReasonOffStudyVS (required)
 * value[x] 1..1
