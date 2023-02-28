@@ -1,8 +1,8 @@
 Profile: CombinedSurgery
 Parent: CancerRelatedSurgicalProcedure
-
-
-
+Id: os-combined-surgery
+Title: "Combined Surgery"
+Description: "A surgery that involves more than one type of surgical procedure, for example, resection and reconstruction."
 
 Profile: SurgicalResectionProcedure
 Parent: CancerRelatedSurgicalProcedure
@@ -38,7 +38,7 @@ Description:  "Codes that describe surgical resections."
 ValueSet: SurgicalResectionOutcomeVS
 Id: os-surgical-resection-outcome-vs
 Title: "Surgical Resection Outcome Value Set"
-Description:  "Codes that describe the macroscopic outcome surgical resections. Microscopic finding of tumor margine should be reported using the SurgicalMarginFinding profile"
+Description:  "Codes that describe the macroscopic outcome surgical resections. Microscopic finding of tumor margins should be reported using the SurgicalMarginFinding profile"
 * ^experimental = true
 * NCIT#C131672 "Gross Total Resection"
 * NCIT#C131680 "Partial Resection"

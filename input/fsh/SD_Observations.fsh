@@ -30,7 +30,7 @@ Description:  "Codes describing the result of macro- or microscopic examination 
 * include codes from system SCT where concept is-a #395536008 "Surgical margin finding (finding)"
 
 Profile: HistologicalGrade
-Parent: us-core-observation-lab
+Parent: USCoreObservationLab
 Id: os-histological-HistologicGradeFindingVS
 Title: "Histological Grade"
 Description: "Histological grade determined from examination of tumor sample."
