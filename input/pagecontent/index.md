@@ -20,4 +20,4 @@ Consistent data standards are the foundation for usable, high-quality data. We w
 
 The PCDC data dictionaries are available [here](https://commons.cri.uchicago.edu/data-dictionaries/).
 
-The initial focus of this project, and of this IG is osteosarcoma (OS); in particular, capturing the [PCDC for OS](https://docs.google.com/spreadsheets/d/15g8aOtaZ9DS7-mBO42AR18g0ScqlPHkalOiV457ddoU/edit#gid=249286314) in FHIR.
+The initial targets of this project are osteosarcoma (OS) and leukemia (LK); in particular, capturing the [PCDC](https://docs.google.com/spreadsheets/d/15g8aOtaZ9DS7-mBO42AR18g0ScqlPHkalOiV457ddoU/edit#gid=249286314) in FHIR.

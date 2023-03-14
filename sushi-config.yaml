@@ -3,10 +3,10 @@
 # │  used properties are included. For a list of all supported properties and their functions,     │
 # │  see: https://fshschool.org/docs/sushi/configuration/.                                         │
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
-id: hl7.fhir.us.os
-canonical: http://hl7.org/fhir/us/os
-name: Osteosarcoma IG
-title: Osteosarcoma on FHIR Implementation Guide
+id: hl7.fhir.us.pedcan
+canonical: http://hl7.org/fhir/us/pedcan
+name: Pediatric Cancer IG
+title: Pediatric Cancer FHIR Implementation Guide
 # description: Example Implementation Guide for getting started with SUSHI
 status: draft # draft | active | retired | unknown
 version: 0.1.0
