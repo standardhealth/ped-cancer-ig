@@ -2,6 +2,20 @@
 
 The following describes the mapping between the tables of PCDC and FHIR.
 
+Where possible, using the latest data dictionaries (subsequent to v1.0)
+
+PCDC_SUBJECT_ID and SUBMITTER_ID are common to all, therefore omitted for brevity.
+
+DISEASE_PHASE and COURSE_TIMING are common to many tables, omitted for brevity.
+
+Timing of events and observations is measured by subject's age in PCDC. Everything in FHIR is recorded by date/time. Omitting AGE_AT_xxxx for brevity.
+
+Often, additional value choices are represented as XXXX_OTHER. This is like an extensible value set in FHIR. Omitted for brevity.
+
+Properties (columns) are sometimes prefixed by the table abbreviation, for example AE_OUTCOME (Adverse Event Outcome). Below, these are written without the prefix (e.g., OUTCOME)
+
+Anytime there is a coded value, there can be a system and version. For brevity, the system and version properties have been omitted.
+
 ## Subject Identifier
 
 * PCDC_SUBJECT_ID
@@ -14,55 +28,57 @@ The following describes the mapping between the tables of PCDC and FHIR.
 * STUDY_ID
 * AGE_AT_ENROLLMENT
 * TREATMENT_ARM
-* DATA_SOURCE
-* RANDOMIZED_STATUS
+* DATA_SOURCE (OS)
+* RANDOMIZED_STATUS (OS)
+* ENROLLED_STATUS (AML)
 
-## Disease Phase Timing
+NOTE: Disease Phase and Course Timing are combined in AML [dev] into one table, Time Period, with a type code (TIME_PERIOD_TYPE) that is either `Disease Phase` or `Course`
+
+## Disease Phase Timing (Common to all)
 
 * DISEASE_PHASE
 * DISEASE_PHASE_NUMBER
 * AGE_AT_DISEASE_PHASE
 * YEAR_AT_DISEASE_PHASE
 
-## Course Timing
+## Course Timing (Common to all)
 
 * COURSE
 * COURSE_NUMBER
 * AGE_AT_COURSE_START
 * AGE_AT_COURSE_END
-* AGE_AT_TXASSIGN
+* AGE_AT_TXASSIGN (OS)
+* AGE_AT_COURSE_ANC_500 (AML)
 
 ## Off Protocol Therapy or Study
 
 * AGE_OFF
 * OFF_TYPE
 * REASON_OFF
-* REASON_OFF_OTHER
 
 ## Demographics
 
 * SEX
 * RACE
-* RACE_OTHER
 * ETHNICITY
 
 ## Medical History
 
 * CONDITION
-* CONDITION_OTHER
-* CONDITION_TYPE
-* CONDITION_STATUS
+* CONDITION_TYPE (OS)
+* CONDITION_STATUS (OS)
 
 ## Survival Characteristics
 
-* AGE_AT_LKSS
 * LKSS
+* AGE_LOST_TO_FOLLOW_UP (AML)
 * CAUSE_OF_DEATH
+* TRM_TYPE (OS)
+* CAUSE_OF_DEATH_DETAIL (AML)
 * CAUSE_OF_DEATH_RANKING
 
 ## Vitals and Anthropometrics
 
-* AGE_AT_MEASUREMENT
 * MEASUREMENT_TYPE
 * MEASUREMENT
 * MEASUREMENT_NUMERIC
@@ -70,39 +86,49 @@ The following describes the mapping between the tables of PCDC and FHIR.
 
 ## Function Test
 
-* AGE_AT_FUNCTION_TEST
-* FUNCTION_CATEGORY
-* FUNCTION_TEST
-* FUNCTION_RESULT
-* FUNCTION_RESULT_CATEGORICAL
-* FUNCTION_RESULT_NUMERIC
-* FUNCTION_RESULT_UNIT
+* CATEGORY
+* TEST
+* RESULT
+* RESULT_CATEGORICAL (OS)
+* RESULT_NUMERIC
+* RESULT_UNIT
 
 ## Laboratory Test
 
-* AGE_AT_LAB
-* LAB_TEST
-* LAB_TEST_OTHER
+* TEST
 * SPECIMEN
-* LAB_RESULT
-* LAB_RESULT_NUMERIC
-* LAB_RESULT_UNIT
+* METHOD (AML)
+* RESULT_MODIFIER (AML)
+* RESULT (OS)
+* RESULT_NUMERIC
+* RESULT_UNIT
 * THRESHOLD_HIGH
+* TRAUMATIC_TAP (AML)
 
 ## Genetic Analysis
 
-* AGE_AT_GENETIC_ANALYSIS
 * METHOD
-* METHOD_OTHER
+* ISCN (AML)
+* INDEPENDENT_ABERATIONS (AML)
+* CELLS_IN_METAPHASE (AML)
+* COMMON_NAME (AML)
+* STATUS (AML)
+* CHROMOSOME (AML)
+* GENE1 (AML)
+* GENE2 (AML)
+* MUTATION_TYPE (AML)
+* COPY_NUMBER_VARIATION (AML)
+* COPY_NUMBER (AML)
+* HGVS_CODING (AML)
+* HGVS_PROTEIN (AML)
+* MUTANT_ALLELE_FRACTION (AML)
 
-## Tumor Characteristics
+## Tumor Characteristics (OS)
 
-* AGE_AT_TUMOR_ASSESSMENT
 * DETECTION_METHOD
 * TISSUE_TYPE
 * TUMOR_CLASSIFICATION
 * TUMOR_SITE
-* TUMOR_SITE_OTHER
 * LATERALITY
 * SITE_WITHIN_BONE
 * SKIP_TUMOR
@@ -119,44 +145,80 @@ The following describes the mapping between the tables of PCDC and FHIR.
 
 * ## Histology
 
-* AGE_AT_HIST_ASSESSMENT
-* HISTOLOGY
-* HISTOLOGY_OTHER
-* HISTOLOGY_GRADE
+* HISTOLOGY (OS)
+* HISTOLOGY_GRADE (OS)
+* FAB_TYPE (AML)
+* WHO_AML (AML)
+* MPAL (AML)
+* MLDS (AML)
+* TAMDS (AML)
+* SECONDARY_AML (AML)
+
+## Disease Characteristics (AML)
+
+* DISEASE_SITE
+* DETECTION_METHOD
+* CNS_DISEASE_STATUS
+* MYELOID_SARCOMA
+* MYELOID_SARCOMA_SITE
 
 ## Medication
 
-* AGE_AT_MEDICATION_START
-* AGE_AT_MEDICATION_END
+* MEDICATION_START
+* MEDICATION_END
 * MEDICATION
-* NORMALIZATION_BASIS
+* ADMINSTRATION_STATUS (AML)
+* NORMALIZATION_BASIS (OS)
+* NUMBER_DOSES (AML)
 * TOTAL_DOSE_ADMINISTERED
-* TOTAL_DOSE_UNITS
+* TOTAL_DOSE_INTENDED (AML)
+* DOSE_UNITS
 
 ## Radiation Therapy
 
-* AGE_AT_RT_START
-* AGE_AT_RT_END
-* TUMOR_CLASSIFICATION
-* TISSUE_TYPE
-* RT_SITE
-* RT_SITE_OTHER
-* LATERALITY
-* ENERGY_TYPE
-* ENERGY_TYPE_OTHER
+* RT_START
+* RT_END
+* TUMOR_CLASSIFICATION (OS)
+* TISSUE_TYPE (OS)
+* SITE
+* LATERALITY (OS)
+* ENERGY_TYPE (OS)
 * RT_DOSE
 * RT_UNIT
-* NUM_FRACTION
-* TRANSPOSITION_ORGAN
+* NUM_FRACTION (OS)
+* TRANSPOSITION_ORGAN (OS)
 
-## Biopsy and Surgical Procedures
+## Transfusion Medicine Procedure (AML)
 
-* AGE_AT_PROCEDURE
+* TYPE
+* PRODUCT
+
+## Cellular Immunotherapy (AML)
+
+* TYPE
+
+## Stem Cell Transplant (AML)
+
+* SCT_TYPE
+* STEM_CELL_SOURCE
+* DONOR_RELATIONSHIP
+* HLA_MATCH
+* NUMBER_HLA
+* NUMBER_MATCHES
+* HLA_A_RESULT
+* HLA_B_RESULT
+* HLA_C_RESULT
+* HLA_DRB1_RESULT
+* HLA_DQ_RESULT
+* CONDITIONING_TYPE
+* PRIOR_TBI
+
+## Biopsy and Surgical Procedures (OS)
+
 * PROCEDURE_TYPE
 * TUMOR_CLASSIFICATION
 * TISSUE_TYPE
 * PROCEDURE_SITE
-* PROCEDURE_SITE_OTHER
 * PROCEDURE_LATERALITY
 * SURGERY_TYPE_LIMB
 * AMPUTATION_TYPE
@@ -171,32 +233,56 @@ The following describes the mapping between the tables of PCDC and FHIR.
 * HEMIPELVECTOMY_TYPE
 * HEMIPELVECTOMY_SITE
 * INTRAOP_ADJUVANT
-* INTRAOP_ADJUVANT_OTHER
 
 ## Subject Response
 
-* AGE_AT_RESPONSE
+* RESPONSE_CATEGORY (AML)
 * RESPONSE
-* RESPONSE_SYSTEM
-* RESPONSE_SYSTEM_VERSION
-* NECROSIS
-* NECROSIS_PCT
-* Adverse Events
-* AGE_AT_AE
-* AGE_AT_AE_RESOLVED
-* AE_CODE
-* AE_CODE_SYSTEM
-* AE_SYSTEM_VERSION
-* AE_GRADE
-* AE_ATTRIBUTION
+* NECROSIS (OS)
+* NECROSIS_PCT (OS)
+* BM_PCT_BLASTS_AT_RESPONSE (AML)
+* BM_ANALYSIS_METHOD_AT_RESPONSE (AML)
+* ANC_AT_RESPONSE (AML)
+* ANC_THRESHOLD_AT_RESPONSE (AML)
+* PLATELET_COUNT_AT_RESPONSE (AML)
+* PLATELET_THRESHOLD_AT_RESPONSE (AML)
 
-## Secondary Malignant Neoplasm
+## Minimal Residual Disease (AML)
 
-* AGE_AT_SMN
-* SMN_ICD_O_MORPH
-* SMN_ICD_O_TOP
+* METHOD
+* RESULT
+* RESULT_NUMERIC
+* RESULT_UNIT
+* SENSITIVITY
+* SAMPLE_SOURCE
+* MOLECULAR_MARKERS
 
-## Patient Reported Outcomes Metadata
+## Adverse Events
+
+* AE_START
+* AE_RESOLVED
+* CODE
+* GRADE
+* ATTRIBUTION
+* ICU (AML)
+* SUPPORTIVE_MEDICATION (AML)
+* INTERVENTION (AML)
+* INTERVENTION_STATUS (AML)
+* PATHOGEN (AML)
+* PATHOGEN_CONFIRMATION (AML)
+* GVHD_ACUITY (AML) - graft versus host disease
+* GVHD_ORGAN (AML)
+* OUTCOME
+
+## Secondary (Subsequent) Malignant Neoplasm
+
+* ICD_O_MORPH (OS)
+* ICD_O_TOP (OS)
+* TREATMENT_RELATED (AML)
+* MORPH_CODE (AML)
+* TOP_CODE (AML)
+
+## Patient Reported Outcomes Metadata (OS)
 
 * STUDY_ID
 * PRO_MEASURES
