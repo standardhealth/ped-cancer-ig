@@ -4,7 +4,7 @@
 
 Profile: CancerResearchSubject
 Parent: ResearchSubject
-Description: "A patient participating or who has participated in a clinical study for osteosarcoma."
+Description: "A patient participating or who has participated in a clinical study for cancer."
 * extension contains ReasonOffStudy named reasonOffStudy 0..1 MS
 * extension contains RandomizationStatus named randomizationStatus 0..1 MS
 
@@ -13,7 +13,6 @@ Extension: ReasonOffStudy
 Id: pedcan-reason-off-study
 Title:  "Reason Off Therapy or Study"
 Description: "This variable indicates the reason a patient left a clinical study."
-* ^url = "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C173519"
 * value[x] only CodeableConcept
 * value[x] from ReasonOffStudyVS (required)
 * value[x] 1..1

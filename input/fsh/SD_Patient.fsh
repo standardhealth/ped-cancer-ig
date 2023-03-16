@@ -1,8 +1,8 @@
-Profile: OsteosarcomaPatient // this is an overly restrictive name
+Profile: PediatricCancerPatient
 Parent: CancerPatient
-Id: pedcan-osteosarcoma-patient
-Title: "Osteosarcoma Patient"
-Description: "A patient being treated for osteosarcoma"
+Id: pedcan-pediatric-cancer-patient
+Title: "Pediatric Cancer Patient"
+Description: "A pediatric patient being treated for cancer"
 * extension contains RankedCauseOfDeath named rankedCauseOfDeath 0..* MS
 
 Extension: RankedCauseOfDeath

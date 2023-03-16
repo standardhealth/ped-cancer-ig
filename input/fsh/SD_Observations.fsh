@@ -29,27 +29,3 @@ Description:  "Codes describing the result of macro- or microscopic examination 
 * insert SNOMEDCopyrightForVS
 * include codes from system SCT where concept is-a #395536008 "Surgical margin finding (finding)"
 
-Profile: HistologicalGrade
-Parent: USCoreObservationLab
-Id: pedcan-histological-HistologicGradeFindingVS
-Title: "Histological Grade"
-Description: "Histological grade determined from examination of tumor sample."
-* code = LNC#21858-6 // "Grade Cancer"
-* value[x] only CodeableConcept
-* value[x] from HistologicalGradeVS (extensible)
-* method from HistologicalGradingSystemVS (extensible)
-
-ValueSet: HistologicalGradeVS
-Id: pedcan-histological-grade-vs
-Title: "Histological Grade Value Set"
-Description:  "A description of a tumor based on how abnormal the cancer cells and tissue look under a microscope and how quickly the cancer cells are likely to grow and spread."
-* insert SNOMEDCopyrightForVS
-* include codes from system SCT where concept is-a #370114008 "Histological grades (qualifier value)"
-
-ValueSet: HistologicalGradingSystemVS
-Id: pedcan-histological-grading-system-vs
-Title: "Histological Grade Value Set"
-Description:  "A description of a tumor based on how abnormal the cancer cells and tissue look under a microscope and how quickly the cancer cells are likely to grow and spread."
-* insert SNOMEDCopyrightForVS
-* include codes from system SCT where concept is-a #277457005 "Histological grading systems (staging scale)"
-
