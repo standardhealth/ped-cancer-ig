@@ -29,27 +29,74 @@ Description:  "Codes describing the result of macro- or microscopic examination 
 * insert SNOMEDCopyrightForVS
 * include codes from system SCT where concept is-a #395536008 "Surgical margin finding (finding)"
 
-Profile: HistologicalGrade
-Parent: USCoreObservationLab
-Id: pedcan-histological-HistologicGradeFindingVS
-Title: "Histological Grade"
-Description: "Histological grade determined from examination of tumor sample."
-* code = LNC#21858-6 // "Grade Cancer"
-* value[x] only CodeableConcept
-* value[x] from HistologicalGradeVS (extensible)
-* method from HistologicalGradingSystemVS (extensible)
+Profile: TumorMorphologyReport
+Parent: USCoreDiagnosticReportProfileLaboratoryReporting
+Id: pedcan-tumor-morphology
+Title: "Tumor Morphology"
+Description: "ICD-O-3 morphology determined from examination of tumor sample, composed of three parts: histologic type, the malignant potential of the tumor (behavior) and the tumor grade (degree of differentiation)."
+* specimen 1..1 MS
+* code = LNC#77753-2  // Tumor morphology panel Cancer
+* insert SliceReferenceOnProfile(result)
+* result contains histology 0..1 and behavior 0..1 and grade 0..1
+* result[histology] only Reference(HistologicType)
+* result[histology] ^short = "Histology Type being reported using ICD-O-3"
+* result[histology] ^definition = "The ICD-O-3 4-digit histology code for the tumor"
+* result[behavior] only Reference(HistologicBehavior)
+* result[behavior] ^short = "Tumor behavior code being reported using ICD-O-3"
+* result[behavior] ^definition = "The ICD-O-3 1-digit behavior code for the tumor"
+* result[grade] only Reference(HistologicGrade)
+* result[grade] ^short = "Tumor grade code being reported using ICD-O-3"
+* result[grade] ^definition = "The ICD-O-3 1-digit grade code for the tumor"
 
-ValueSet: HistologicalGradeVS
-Id: pedcan-histological-grade-vs
-Title: "Histological Grade Value Set"
+Profile: HistologicType
+Parent: USCoreObservationLab
+Id: pedcan-histologic-type
+Title: "Histologic Type"
+Description: "Histologic type determined from examination of tumor sample."
+* specimen 1..1 MS
+* code = LNC#31205-8 // Histology ICD-O-3 Cancer
+* value[x] only CodeableConcept
+* value[x] from HistologicTypeVS
+
+Profile: HistologicBehavior
+Parent: USCoreObservationLab
+Id: pedcan-histologic-behavior
+Title: "Histologic Behavior"
+Description: "Histologic behavior determined from examination of tumor sample."
+* specimen 1..1 MS
+* code = LNC#31206-6 // Behavior ICD-O-3 Cancer
+* value[x] only CodeableConcept
+* value[x] from HistologicBehaviorVS
+
+Profile: HistologicGrade
+Parent: USCoreObservationLab
+Id: pedcan-histologic-grade
+Title: "Histologic Grade"
+Description: "Histologic grade determined from examination of tumor sample."
+* specimen 1..1 MS
+* code = LNC#33732-9 // Histology grade [Identifier] in Cancer specimen  (could be 21858-6 Grade Cancer)
+* value[x] only CodeableConcept
+* value[x] from HistologicGradeVS
+* method from HistologicGradingSystemVS (extensible)
+
+ValueSet: HistologicTypeVS
+Id: pedcan-histologic-type-vs
+Title: "Histologic Type Value Set"
 Description:  "A description of a tumor based on how abnormal the cancer cells and tissue look under a microscope and how quickly the cancer cells are likely to grow and spread."
 * insert SNOMEDCopyrightForVS
 * include codes from system SCT where concept is-a #370114008 "Histological grades (qualifier value)"
 
-ValueSet: HistologicalGradingSystemVS
-Id: pedcan-histological-grading-system-vs
-Title: "Histological Grade Value Set"
+
+ValueSet: HistologicGradeVS
+Id: pedcan-histologic-grade-vs
+Title: "Histologic Grade Value Set"
+Description:  "A description of a tumor based on how abnormal the cancer cells and tissue look under a microscope and how quickly the cancer cells are likely to grow and spread."
+* insert SNOMEDCopyrightForVS
+* include codes from system SCT where concept is-a #370114008 "Histological grades (qualifier value)"
+
+ValueSet: HistologicGradingSystemVS
+Id: pedcan-histologic-grading-system-vs
+Title: "Histologic Grade Value Set"
 Description:  "A description of a tumor based on how abnormal the cancer cells and tissue look under a microscope and how quickly the cancer cells are likely to grow and spread."
 * insert SNOMEDCopyrightForVS
 * include codes from system SCT where concept is-a #277457005 "Histological grading systems (staging scale)"
-
