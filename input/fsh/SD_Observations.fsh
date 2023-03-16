@@ -3,7 +3,7 @@ Alias:   USCoreCondition = http://hl7.org/fhir/us/core/StructureDefinition/us-co
 
 Profile: TumorNecrosisObservation
 Parent: USCoreObservationLab
-Id: os-tumor-necrosis-observation
+Id: pedcan-tumor-necrosis-observation
 Title: "Tumor Necrosis Observation"
 Description: "The percentage necrosis for a tumor or tumors"
 * focus 1..1
@@ -15,7 +15,7 @@ Description: "The percentage necrosis for a tumor or tumors"
 
 Profile: SurgicalTumorMargin
 Parent: USCoreObservationLab
-Id: os-surgical-tumor-margin
+Id: pedcan-surgical-tumor-margin
 Title: "Surgical Margin"
 Description: "Result of macro- or microscopic examination of the margins of a resected tumor."
 * code = SCT#395536008 "Surgical margin finding (finding)"
@@ -23,7 +23,7 @@ Description: "Result of macro- or microscopic examination of the margins of a re
 * value[x] from SurgicalMarginVS (extensible)
 
 ValueSet: SurgicalMarginVS
-Id: os-surgical-margin-vs
+Id: pedcan-surgical-margin-vs
 Title: "Surgical Margin Value Set"
 Description:  "Codes describing the result of macro- or microscopic examination of the margins of a resected tumor."
 * insert SNOMEDCopyrightForVS
@@ -31,7 +31,7 @@ Description:  "Codes describing the result of macro- or microscopic examination 
 
 Profile: HistologicalGrade
 Parent: USCoreObservationLab
-Id: os-histological-HistologicGradeFindingVS
+Id: pedcan-histological-HistologicGradeFindingVS
 Title: "Histological Grade"
 Description: "Histological grade determined from examination of tumor sample."
 * code = LNC#21858-6 // "Grade Cancer"
@@ -40,14 +40,14 @@ Description: "Histological grade determined from examination of tumor sample."
 * method from HistologicalGradingSystemVS (extensible)
 
 ValueSet: HistologicalGradeVS
-Id: os-histological-grade-vs
+Id: pedcan-histological-grade-vs
 Title: "Histological Grade Value Set"
 Description:  "A description of a tumor based on how abnormal the cancer cells and tissue look under a microscope and how quickly the cancer cells are likely to grow and spread."
 * insert SNOMEDCopyrightForVS
 * include codes from system SCT where concept is-a #370114008 "Histological grades (qualifier value)"
 
 ValueSet: HistologicalGradingSystemVS
-Id: os-histological-grading-system-vs
+Id: pedcan-histological-grading-system-vs
 Title: "Histological Grade Value Set"
 Description:  "A description of a tumor based on how abnormal the cancer cells and tissue look under a microscope and how quickly the cancer cells are likely to grow and spread."
 * insert SNOMEDCopyrightForVS

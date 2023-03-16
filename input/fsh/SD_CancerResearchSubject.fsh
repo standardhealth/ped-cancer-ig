@@ -10,7 +10,7 @@ Description: "A patient participating or who has participated in a clinical stud
 
 //Extensions
 Extension: ReasonOffStudy
-Id: os-reason-off-study
+Id: pedcan-reason-off-study
 Title:  "Reason Off Therapy or Study"
 Description: "This variable indicates the reason a patient left a clinical study."
 * ^url = "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C173519"
@@ -19,7 +19,7 @@ Description: "This variable indicates the reason a patient left a clinical study
 * value[x] 1..1
 
 Extension: RandomizationStatus
-Id: os-randomization-status
+Id: pedcan-randomization-status
 Title:  "RandomizationStatus"
 Description: "This variable indicates the whether or not a patient was randomized in a clinical study."
 //* . ^code = NCIT#C25196
@@ -31,7 +31,7 @@ Description: "This variable indicates the whether or not a patient was randomize
 
 //Valuesets
 ValueSet: ReasonOffStudyVS
-Id: os-reason-off-study-vs
+Id: pedcan-reason-off-study-vs
 Title: "Reason Off Study Value Set"
 Description: "Value set for reasons a patient leaves a clinical study."
 * insert SNOMEDCopyrightForVS
@@ -45,7 +45,7 @@ Description: "Value set for reasons a patient leaves a clinical study."
 //* NCIT#C168934 "Subject/Guardian Refused Further Treatment"
 
 ValueSet: RandomizationStatusVS
-Id: os-randomization-status-vs
+Id: pedcan-randomization-status-vs
 Title: "Randomization Status Value Set"
 Description: "Value set for whether or not a patient was randomized in a clinical study."
 * ^experimental = true
