@@ -1,40 +1,40 @@
-Profile: Era
+Profile: Phase
 Parent: Basic
-Id: pedcan-era
-Description: "A period of time marked by the application of a certain therapeutic approch, disease phase, or other distinguishable health or treatment status. The code element (Basic.code) represents the general type of era (e.g., a treatment era or a disease era), while the EraPhase represents the specific type of the Era (e.g., acute phase of a disease era)."
-* extension contains EraPhase named phase 0..1 MS
-* extension contains EraNumber named number 1..1 MS
-* extension contains EraStartDate named startDate 0..1 MS
-* extension contains EraEndDate named endDate 0..1 MS
+Id: pedcan-phase
+Description: "A period of time marked by the application of a certain therapeutic approch, disease phase, or other distinguishable health or treatment status. The code element (Basic.code) represents the category of phase (e.g., a treatment phase or a disease phase), while the Phase represents the specific type of the phase (e.g., acute phase of a disease)."
+* extension contains PhaseName named phaseName 0..1 MS
+* extension contains PhaseNumber named phaseNumber 1..1 MS
+* extension contains PhaseStartDate named startDate 0..1 MS
+* extension contains PhaseEndDate named endDate 0..1 MS
 * extension contains Description named description 0..1 MS
 
 // Extensions
 
-Extension: EraPhase
-Id: pedcan-era-phase
-Title:  "Era Phase"
-Description: "The code refers to the phase of era during which relevant observations were recorded. While 'code' refers the general type of era (e.g., a condition era), the phase is more specific (e.g., acute phase of a condition era)"
+Extension: PhaseName
+Id: pedcan-phase-name
+Title:  "Phase"
+Description: "The name of the phase during which relevant observations were recorded. While 'code' refers the general category of the phase (e.g., a condition pahse), the phase name is more specific (e.g., acute phase)"
 * value[x] only CodeableConcept
 * value[x] 1..1
 
-Extension: EraNumber
-Id: pedcan-era-number
-Title:  "Era Number"
-Description: "This variable indicates the ordinal numbering of the Era within its various subgroups (e.g., Induction 1, Induction 2, Induction 3, etc.). The observations across domains can therefore be organized longitudinally without the need for specific dates."
+Extension: PhaseNumber
+Id: pedcan-phase-number
+Title:  "Phase Number"
+Description: "This variable indicates the ordinal numbering of the Phase within its various subgroups (e.g., Induction 1, Induction 2, Induction 3, etc.). The observations across domains can therefore be organized longitudinally without the need for specific dates."
 * value[x] only unsignedInt   // start at 0 or 1?
 * value[x] 1..1
 
-Extension: EraStartDate
-Id: pedcan-era-start-date
-Title:  "Era Start Date"
-Description: "The date when this ordinally numbered era was started."
+Extension: PhaseStartDate
+Id: pedcan-phase-start-date
+Title:  "Phase Start Date"
+Description: "The date when an ordinally numbered phase was started."
 * value[x] only date
 * value[x] 1..1
 
-Extension: EraEndDate
-Id: pedcan-era-end-date
+Extension: PhaseEndDate
+Id: pedcan-phase-end-date
 Title:  "End Date"
-Description: "The date when this ordinally numbered era was ended."
+Description: "The date when an ordinally numbered phase was ended."
 * value[x] only date
 * value[x] 1..1
 
@@ -45,23 +45,23 @@ Description: "Text description of the resource."
 * value[x] only string
 * value[x] 1..1
 
-// Specific types of Era
+// Specific types of Phase
 
-Profile: CourseEra
-Parent: Era
-Id: pedcan-course-era
-Description: "The protocol treatment 'course' during which relevant observations were recorded. This variable is used across domains to frame the timing of these longitudinal observations and reduce the number of redundant variables needed to report similar concepts."
+Profile: CoursePhase
+Parent: Phase
+Id: pedcan-course-phase
+Description: "The protocol treatment 'course' during which relevant observations were recorded. This profile is used across domains to frame the timing of these longitudinal observations and reduce the number of redundant variables needed to report similar concepts."
 * subject only Reference(Patient or ResearchSubject)  // which?
 * code = NCIT#C168807  //  Protocol Treatment Course
-* extension[phase].value[x] from CoursePhaseVS
+* extension[phaseName].value[x] from CoursePhaseVS
 
-Profile: DiseaseEra
-Parent: Era
-Id: pedcan-disease-era
-Description: "The phase of the cancer treatment process during which relevant observations were recorded. This variable is used across domains to frame the timing of these longitudinal observations and reduce the number of redundant variables needed to report similar concepts."
+Profile: DiseasePhase
+Parent: Phase
+Id: pedcan-disease-phase
+Description: "The phase of the cancer treatment process during which relevant observations were recorded. This profile is used across domains to frame the timing of these longitudinal observations and reduce the number of redundant variables needed to report similar concepts."
 * subject only Reference(Patient or ResearchSubject)  // which?
 * code = NCIT#C168878  // or SCT#278174000 "Disease phase (attribute)"
-* extension[phase].value[x] from DiseasePhaseVS
+* extension[phaseName].value[x] from DiseasePhaseVS
 
 ValueSet: CoursePhaseVS
 Id: pedcan-course-phase-vs
@@ -86,13 +86,13 @@ Description: "Value set for phases of disease."
 
 // EXAMPLE
 Instance: FirstCourse
-InstanceOf: CourseEra
-Description: "Example of Course Era resource"
+InstanceOf: CoursePhase
+Description: "Example of Course Phase resource"
 * subject = Reference(cancer-patient-john-anyperson)
-* extension[phase].valueCodeableConcept = SCT#314122007 "Maintenance therapy (procedure)"
+* extension[phaseName].valueCodeableConcept = SCT#314122007 "Maintenance therapy (procedure)"
 * extension[startDate].valueDate = 2015-02-07
 * extension[endDate].valueDate = 2017-08-16
-* extension[number].valueUnsignedInt = 3
+* extension[phaseNumber].valueUnsignedInt = 3
 
 Instance: cancer-patient-john-anyperson
 InstanceOf: CancerPatient
