@@ -20,3 +20,9 @@ RuleSet: ObservationComponentSlicingRules
 * component ^slicing.discriminator.path = "code"
 * component ^slicing.rules = #open
 * component ^slicing.description = "Slice based on the component.code pattern"
+
+RuleSet: SimpleArraySlicingRules(path)
+* {path} ^slicing.discriminator.type = #pattern
+* {path} ^slicing.discriminator.path = "$this"
+* {path} ^slicing.rules = #open
+* {path} ^slicing.description = "Slice based on the element's value"
