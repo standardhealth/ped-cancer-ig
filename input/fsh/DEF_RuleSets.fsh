@@ -26,3 +26,18 @@ RuleSet: SimpleArraySlicingRules(path)
 * {path} ^slicing.discriminator.path = "$this"
 * {path} ^slicing.rules = #open
 * {path} ^slicing.description = "Slice based on the element's value"
+
+RuleSet: DefineIntegerComponent(sliceName, code, short, definition)
+* component[{sliceName}].code = {code}
+* component[{sliceName}].value[x] only integer
+* component[{sliceName}] ^short = {short}
+* component[{sliceName}] ^definition = {definition}
+
+
+RuleSet: DefineCodeableComponent(sliceName, code, valueSet, short, definition)
+* component[{sliceName}].code = {code}
+* component[{sliceName}].value[x] only CodeableConcept
+* component[{sliceName}].value[x] from {valueSet}
+* component[{sliceName}] ^short = {short}
+* component[{sliceName}] ^definition = {definition}
+
