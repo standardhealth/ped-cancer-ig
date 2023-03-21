@@ -6,3 +6,6 @@ Alias:   UCUM = http://unitsofmeasure.org
 Alias:   MEDDRA = http://terminology.hl7.org/CodeSystem/MDRAE
 Alias:   LNC = http://loinc.org
 Alias:   ICDO3 = http://terminology.hl7.org/CodeSystem/icd-o-3
+
+
+Alias:   $HLAMatchVS = https://loinc.org/LL5594-8

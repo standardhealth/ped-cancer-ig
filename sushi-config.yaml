@@ -7,13 +7,12 @@ id: hl7.fhir.us.pedcan
 canonical: http://hl7.org/fhir/us/pedcan
 name: Pediatric Cancer IG
 title: Pediatric Cancer FHIR Implementation Guide
-# description: Example Implementation Guide for getting started with SUSHI
 status: draft # draft | active | retired | unknown
 version: 0.1.0
-fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html
+fhirVersion: 4.0.1
 copyrightYear: 2023+
 releaseLabel: ci-build # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
-# license: CC0-1.0 # https://www.hl7.org/fhir/valueset-spdx-license.html
+license: CC0-1.0
 jurisdiction: urn:iso:std:iso:3166#US "United States of America" # https://www.hl7.org/fhir/valueset-jurisdiction.html
 publisher:
   name: MITRE Corporation
@@ -27,7 +26,25 @@ publisher:
 dependencies:
   hl7.fhir.us.core: 5.0.1
   hl7.fhir.us.mcode: 2.0.0
+  hl7.fhir.uv.genomics-reporting: 2.0.0
 #
+# The parameters property represents IG.definition.parameter. Rather
+# than a list of code/value pairs (as in the ImplementationGuide
+# resource), the code is the YAML key. If a parameter allows repeating
+# values, the value in the YAML should be a sequence/array.
+# For parameters defined by core FHIR see:
+# http://build.fhir.org/codesystem-guide-parameter-code.html
+# For parameters defined by the FHIR Tools IG see:
+# http://build.fhir.org/ig/FHIR/fhir-tools-ig/branches/master/CodeSystem-ig-parameters.html
+#
+# parameters:
+#   excludettl: true
+#   validation: [allow-any-extensions, no-broken-links]
+parameters:
+  show-inherited-invariants: false
+  version-comparison: n/a
+  path-expansion-params: '../../exp-params.json'  #path is relative to [base]/fsh-generated/resources
+  path-binary: input/attachments  
 #
 # The pages property corresponds to IG.definition.page. SUSHI can
 # auto-generate the page list, but if the author includes pages in
@@ -46,19 +63,6 @@ pages:
 #   implementation.xml:
   pcdc.md:
     title: PCDC Mapping to FHIR
-#
-# The parameters property represents IG.definition.parameter. Rather
-# than a list of code/value pairs (as in the ImplementationGuide
-# resource), the code is the YAML key. If a parameter allows repeating
-# values, the value in the YAML should be a sequence/array.
-# For parameters defined by core FHIR see:
-# http://build.fhir.org/codesystem-guide-parameter-code.html
-# For parameters defined by the FHIR Tools IG see:
-# http://build.fhir.org/ig/FHIR/fhir-tools-ig/branches/master/CodeSystem-ig-parameters.html
-#
-# parameters:
-#   excludettl: true
-#   validation: [allow-any-extensions, no-broken-links]
 #
 # ╭────────────────────────────────────────────menu.xml────────────────────────────────────────────╮
 # │ The menu property will be used to generate the input/menu.xml file. The menu is represented    │

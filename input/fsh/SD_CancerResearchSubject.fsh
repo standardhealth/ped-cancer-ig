@@ -36,7 +36,7 @@ Description: "Value set for reasons a patient leaves a clinical study."
 * insert SNOMEDCopyrightForVS
 * ^experimental = true
 * include codes from valueset TreatmentTerminationReasonVS 
-* SCT#7058009 "Noncompliance with treatment (finding)" //currently not in TerminationReason
+* SCT#7058009 "Noncompliance with treatment (finding)" //not in TreatmentTerminationReasonVS STU2, but will be in STU3
 
 //PCDC codes that are covered by the terminationReason codes above, but don't exactly match
 //* NCIT#C48250 "Physician Decision"
