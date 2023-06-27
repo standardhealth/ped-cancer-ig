@@ -2,6 +2,7 @@ Profile: Phase
 Parent: Basic
 Id: pedcan-phase
 Description: "A period of time marked by the application of a certain therapeutic approch, disease phase, or other distinguishable health or treatment status. The code element (Basic.code) represents the category of phase (e.g., a treatment phase or a disease phase), while the Phase represents the specific type of the phase (e.g., acute phase of a disease)."
+* ^abstract = true
 * extension contains PhaseName named phaseName 0..1 MS
 * extension contains PhaseNumber named phaseNumber 1..1 MS
 * extension contains PhaseStartDate named startDate 0..1 MS
