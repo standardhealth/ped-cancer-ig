@@ -35,7 +35,7 @@ Title:  "Line of Therapy"
 Description: "A plan of care, identified by a serial chronological number assigned to each systemic anti-cancer therapy (SACT) administered to a patient, denoting a discrete attempt to treat the cancer. Definition of a LoT is defined by start and end rules such as given in [Hess et al., 2021](https://www.futuremedicine.com/doi/full/10.2217/fon-2020-1041) or [this Optum whitepaper](https://cdn-aem.optum.com/content/dam/optum3/optum/en/resources/white-papers/wf520768_guidelines-for-determining-lines-of-therapy.pdf)."
 * extension contains LineOfTherapyExtension named lineOfTherapy 1..1 MS
 * extension contains ProcedureIntent named treatmentIntent 0..1 MS 
-* replaces only (LineOfTherapy)
+* replaces only Reference(LineOfTherapy)
 // Identify the regimen
 * identifier ^short = "Identifiers for this LoT, including identifiers for the regimen (if any)."
 * identifier ^slicing.discriminator.type = #pattern
