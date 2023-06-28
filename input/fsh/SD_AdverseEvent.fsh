@@ -136,7 +136,7 @@ Description: "The NCI Common Terminology Criteria for Adverse Events (CTCAE) is 
 
 **Use of 'Other, specify'**: In the event a suitable CTCAE term cannot be found, the appropriate verbatim term SHALL be captured via the 'Other, specify' mechanism. In this case, the verbatim term is populated into the event.text field, the NCIT code for the body system into the event.coding.code field, and the display string corresponding to the code into the event.coding.display field. For example, if reporting the unusual adverse event 'Vulcan-green blood' it will be reported as: event.text of 'Vulcan-green blood', event.coding.display of 'Blood and lymphatic system disorders - Other, specify', and event.coding.code of NCIT code C143323."
 * ^experimental = true
-* codes from system MEDDRA
+* codes from system MDR
 * NCIT#C143283  "Anemia"
 * NCIT#C143323  "Blood and lymphatic system disorders - Other, specify"
 * NCIT#C143332  "Bone marrow hypocellular"
