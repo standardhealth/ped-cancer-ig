@@ -42,3 +42,8 @@ RuleSet: DefineCodeableComponent(sliceName, code, min, max, valueSet, short, def
 * component[{sliceName}] ^short = {short}
 * component[{sliceName}] ^definition = {definition}
 
+RuleSet: SliceReferenceOnProfile(path)
+* {path} ^slicing.discriminator.type = #profile
+* {path} ^slicing.discriminator.path = "$this.resolve()"
+* {path} ^slicing.rules = #open
+* {path} ^slicing.description = "Slicing based on profile conformance of the referenced resource."

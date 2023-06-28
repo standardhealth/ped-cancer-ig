@@ -83,14 +83,7 @@ Description:  "A description of a tumor based on how abnormal the cancer cells a
 
 ValueSet: HistologicGradingSystemVS
 Id: pedcan-histologic-grading-system-vs
-Title: "Histologic Grade Value Set"
+Title: "Histologic Grading System Value Set"
 Description:  "A description of a tumor based on how abnormal the cancer cells and tissue look under a microscope and how quickly the cancer cells are likely to grow and spread."
 * insert SNOMEDCopyrightForVS
 * include codes from system SCT where concept is-a #277457005 "Histological grading systems (staging scale)"
-
-
-RuleSet: SliceReferenceOnProfile(path)
-* {path} ^slicing.discriminator.type = #profile
-* {path} ^slicing.discriminator.path = "$this.resolve()"
-* {path} ^slicing.rules = #open
-* {path} ^slicing.description = "Slicing based on profile conformance of the referenced resource."
