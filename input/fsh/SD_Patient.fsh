@@ -73,7 +73,7 @@ Title: "Body Surface Area"
 Description: "Entire body surface area, either measured or calculated."
 * code = LNC#8277-6 // Body Surface Area
 * value[x] only Quantity
-* valueQuantity = UCUM#m2
+* value[x] = UCUM#m2
 * method from BSAMethodVS (extensible)
 
 ValueSet: BSAMethodVS
