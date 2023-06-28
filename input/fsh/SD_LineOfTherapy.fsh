@@ -37,6 +37,7 @@ Title:  "Line of Therapy"
 Description: "A record of line of therapy (LoT) given to a patient, both planned and executed. A LoT is  identified by a serial chronological number assigned to each systemic anti-cancer therapy administered to a patient, denoting a discrete attempt to treat the cancer. Definition of a LoT can be defined by start and end rules such as those given in [Hess et al., 2021](https://www.futuremedicine.com/doi/full/10.2217/fon-2020-1041) or [this Optum whitepaper](https://cdn-aem.optum.com/content/dam/optum3/optum/en/resources/white-papers/wf520768_guidelines-for-determining-lines-of-therapy.pdf). However, the exact rules around LoT starting and ending are not defined by this profile, and should be determined by the clinician."
 * extension contains LineOfTherapyNumber named lineOfTherapyNumber 1..1 MS
 * extension contains ProcedureIntent named treatmentIntent 0..1 MS 
+//* extension contains TreatmentTerminationReason named terminationReason 0..* MS
 * replaces only Reference(LineOfTherapy)
 // Identify the regimen
 * identifier ^short = "Identifiers for this LoT, including identifiers for the regimen (if any)."
@@ -50,3 +51,21 @@ Description: "A record of line of therapy (LoT) given to a patient, both planned
 * activity.outcomeReference only Reference(CancerRelatedMedicationAdministration or CancerRelatedMedicationRequest or MedicationDispense or Procedure)
 * activity.outcomeReference ^short = "Action taken as part of this line of therapy"
 * activity.outcomeReference ^definition = "An action carried out as part of the line of therapy, a medication administration, medication dispense, or procedure."
+
+/* Cutting this out for now because I couldn't find codes for TreatmentToleration
+Extension: TreatmentToleration
+Id: pedcan-treatment-toleration
+Title:  "Treatment Toleration"
+Description: "Subjective assessment of how well a treatment is tolerated by the patient."
+* insert ExtensionContext(MedicationAdministration)
+* insert ExtensionContext(LineOfTherapy)
+* insert ExtensionContext(Procedure)
+* value[x] only CodeableConcept
+* value[x] from TreatmentTolerationVS
+
+ValueSet: TreatmentTolerationVS
+Id: pedcan-treatment-toleration-vs
+Title: "Treatment Toleration Value Set"
+Description: "Codes describing levels of treatment toleration."
+* SCT#
+*/

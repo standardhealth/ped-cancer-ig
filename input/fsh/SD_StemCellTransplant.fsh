@@ -36,24 +36,16 @@ Description: "Summary of human leukocyte antigens (HLA) matching patients and do
 * value[x] only CodeableConcept
 * value[x] from HLAMatchStatusVS
 * insert ObservationComponentSlicingRules
-* component contains 
-    numberEvaluated 0..1 and 
-    numberMatched 0..1 and 
-    HLA_A_result 0..1 and
-    HLA_B_result 0..1 and
-    HLA_C_result 0..1 and
-    HLA_DRB1_result 0..1 and
-    HLA_DQ_result 0..1 and
-    HLA_other_result 0..*
-* insert DefineIntegerComponent(numberEvaluated, NCIT#C173301, "Number of Evaluated HLAs", "Number of Evaluated HLAs")
-* insert DefineIntegerComponent(numberMatched, NCIT#C173302, "Number of Matched HLAs", "Number of Matched HLAs")
-* insert DefineCodeableComponent(HLA_A_result, SCT#49495002, $HLAMatchVS, "Match Status for HLA-A Antigen", "Match Status for HLA-A Antigen")
-* insert DefineCodeableComponent(HLA_B_result, SCT#54481006, $HLAMatchVS, "Match Status for HLA-B Antigen", "Match Status for HLA-B Antigen")
-* insert DefineCodeableComponent(HLA_C_result, SCT#80188006, $HLAMatchVS, "Match Status for HLA-C Antigen", "Match Status for HLA-C Antigen")
-* insert DefineCodeableComponent(HLA_DRB1_result, SCT#260075000, $HLAMatchVS, "Match Status for HLA-DRB1 Antigen", "Match Status for HLA-DRB1 Antigen")
-* insert DefineCodeableComponent(HLA_DQ_result, SCT#78749006, $HLAMatchVS, "Match Status for HLA-DQ Antigen", "Match Status for HLA-DQ Antigen")
+* insert DefineIntegerComponent(numberEvaluated, NCIT#C173301, 0, 1, "Number of Evaluated HLAs", "Number of Evaluated HLAs")
+* insert DefineIntegerComponent(numberMatched, NCIT#C173302, 0, 1, "Number of Matched HLAs", "Number of Matched HLAs")
+* insert DefineCodeableComponent(HLA_A_result, SCT#49495002, 0, 1, HLAMatchStatusVS, "Match Status for HLA-A Antigen", "Match Status for HLA-A Antigen")
+* insert DefineCodeableComponent(HLA_B_result, SCT#54481006, 0, 1, HLAMatchStatusVS, "Match Status for HLA-B Antigen", "Match Status for HLA-B Antigen")
+* insert DefineCodeableComponent(HLA_C_result, SCT#80188006, 0, 1, HLAMatchStatusVS, "Match Status for HLA-C Antigen", "Match Status for HLA-C Antigen")
+* insert DefineCodeableComponent(HLA_DRB1_result, SCT#260075000, 0, 1, HLAMatchStatusVS, "Match Status for HLA-DRB1 Antigen", "Match Status for HLA-DRB1 Antigen")
+* insert DefineCodeableComponent(HLA_DQ_result, SCT#78749006, 0, 1, HLAMatchStatusVS, "Match Status for HLA-DQ Antigen", "Match Status for HLA-DQ Antigen")
+* component contains HLA_other_result 0..*
 * component[HLA_other_result].code from HLAAntigenVS
-* component[HLA_other_result].value[x] from $HLAMatchVS
+* component[HLA_other_result].value[x] from HLAMatchStatusVS
 * component[HLA_other_result] ^short = "Match Status for named HLA Antigen"
 * component[HLA_other_result] ^definition = "Match Status for named HLA Antigen"
 
