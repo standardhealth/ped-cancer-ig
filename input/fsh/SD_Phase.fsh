@@ -54,7 +54,7 @@ Id: pedcan-course-phase
 Description: "The protocol treatment 'course' during which relevant observations were recorded. This profile is used across domains to frame the timing of these longitudinal observations and reduce the number of redundant variables needed to report similar concepts."
 * subject only Reference(Patient or ResearchSubject)  // which?
 * code = NCIT#C168807  //  Protocol Treatment Course
-* extension[phaseName].value[x] from CoursePhaseVS
+* extension[phaseName].value[x] from CoursePhaseValueVS
 
 Profile: DiseasePhase
 Parent: Phase
@@ -62,10 +62,10 @@ Id: pedcan-disease-phase
 Description: "The phase of the cancer treatment process during which relevant observations were recorded. This profile is used across domains to frame the timing of these longitudinal observations and reduce the number of redundant variables needed to report similar concepts."
 * subject only Reference(Patient or ResearchSubject)  // which?
 * code = NCIT#C168878  // or SCT#278174000 "Disease phase (attribute)"
-* extension[phaseName].value[x] from DiseasePhaseVS
+* extension[phaseName].value[x] from DiseasePhaseValueVS
 
-ValueSet: CoursePhaseVS
-Id: pedcan-course-phase-vs
+ValueSet: CoursePhaseValueVS
+Id: pedcan-course-phase-value-vs
 Title: "Course Phase Value Set"
 Description: "The phase of the treatment associated with the protocol 'course'."
 * insert SNOMEDCopyrightForVS
@@ -74,8 +74,8 @@ Description: "The phase of the treatment associated with the protocol 'course'."
 * SCT#400001000004103 "Neoadjuvant antineoplastic therapy (procedure)"
 * SCT#314122007 "Maintenance therapy (procedure)"
 
-ValueSet: DiseasePhaseVS
-Id: pedcan-disease-phase-vs
+ValueSet: DiseasePhaseValueVS
+Id: pedcan-disease-phase-value-vs
 Title: "Disease Phase Value Set"
 Description: "Value set for phases of disease."
 * insert SNOMEDCopyrightForVS

@@ -1,29 +1,29 @@
-ValueSet: BinetStageVS
-Id: pedcan-binet-stage-vs
+ValueSet: BinetStageValueVS
+Id: pedcan-binet-stage-value-vs
 Title: "Binet Stage Value Set"
 Description: "Codes in the Binet staging system representing Chronic Lymphocytic Leukemia (CLL) stage."
 * NCIT#C80134 "Binet Stage A"
 * NCIT#C80135 "Binet Stage B"
 * NCIT#C80136 "Binet Stage C"
 
-ValueSet: ClinOrPathVS
-Id: pedcan-clin-or-path-vs
-Title: "Clinical or Pathologic Staging"
-Description: "Codes to indicate if staging was based on clinical or pathologic evidence."
-* SCT#385349001 "Clinical stage (observable entity)"
-* SCT#405978005 "Pathologic stage (observable entity)"
+ValueSet: ClinOrPathModifierVS
+Id: pedcan-clin-or-path-modifier-vs
+Title: "Clinical or Pathologic Modifier"
+Description: "Stage value modifier indicating if staging was based on clinical or pathological evidence."
+* SCT#260998006 "Clinical staging (qualifier value)"
+* SCT#261023001 "Pathological staging (qualifier value)"
 
-ValueSet: CMLPhaseVS
-Id: pedcan-cml-phase-vs
+ValueSet: CMLPhaseValueVS
+Id: pedcan-cml-phase-value-vs
 Title: "Chronic Myeloid Leukemia Phase Value Set"
 Description: "Phases of Chronic Myeloid Leukemia (CML)"
 * SCT#278177007 "Chronic phase (qualifier value)"
 * SCT#278179005 "Accelerated phase (qualifier value)"
 //* SCT#278180008 "Blast crisis (qualifier value)"
-* SCT#255251009 "Acute phase"
+* SCT#255251009 "Acute phase (qualifier value)"  // aka Blast phase
 
-ValueSet: FABClassificationVS
-Id: pedcan-fab-classification-vs
+ValueSet: FABClassificationValueVS
+Id: pedcan-fab-classification-value-vs
 Title: "FAB Classification"
 Description: "French American British classification for acute myeloid leukemias, acute lymphoblastic leukemias, and myelodysplastic syndromes."
 * include codes from system SCT where concept descendant-of #278159002 "French-American-British type values (qualifier value)"
@@ -35,15 +35,15 @@ Description: "Stage Types for International Federation of Gynecology and Obstetr
 * insert SNOMEDCopyrightForVS
 * include codes from system SCT where concept is-a #385361009 "International Federation of Gynecology and Obstetrics stage for gynecological malignancy (observable entity)"
 
-ValueSet: FIGOStageSystemVS
-Id: pedcan-figo-stage-system-vs
-Title: "FIGO Stage System Value Set"
-Description: "Stage Systems from International Federation of Gynecology and Obstetrics (FIGO)."
+ValueSet: FIGOStagingMethodVS
+Id: pedcan-figo-staging-method-vs
+Title: "FIGO Staging Method Value Set"
+Description: "Staging methods from International Federation of Gynecology and Obstetrics (FIGO)."
 * insert SNOMEDCopyrightForVS
 * include codes from system SCT where concept is-a #254383006 "International Federation of Gynecology and Obstetrics staging system of gynecological malignancy (tumor staging)"
 
-ValueSet: FIGOStageVS
-Id: pedcan-figo-stage-vs
+ValueSet: FIGOStageValueVS
+Id: pedcan-figo-stage-value-vs
 Title: "FIGO Stage Value Set"
 Description: "Values for International Federation of Gynecology and Obstetrics (FIGO) Staging System."
 * NCIT#C96243 "FIGO Stage 0"
@@ -79,8 +79,8 @@ Description: "Values for International Federation of Gynecology and Obstetrics (
 * NCIT#C96262 "FIGO Stage IVA"
 * NCIT#C96263 "FIGO Stage IVB"
 
-ValueSet: INRGSSVS
-Id: pedcan-inrgss-vs
+ValueSet: INRGSSValueVS
+Id: pedcan-inrgss-value-vs
 Title: "International Neuroblastoma Risk Group Value Set"
 Description: "Codes in International Neuroblastoma Risk Group. It includes two stages of localized disease (L1 and L2) and two stages of metastatic disease (M and MS)."
 * NCIT#C133428 "INRG Stage L1"
@@ -88,8 +88,8 @@ Description: "Codes in International Neuroblastoma Risk Group. It includes two s
 * NCIT#C133430 "INRG Stage M"
 * NCIT#C133431 "INRG Stage MS"
 
-ValueSet: INSSStageVS
-Id: pedcan-inss-stage-vs
+ValueSet: INSSStageValueVS
+Id: pedcan-inss-stage-value-vs
 Title: "INNS Stage Value Set"
 Description: "Codes in INSS staging system representing neuroblastoma stage."
 * insert SNOMEDCopyrightForVS
@@ -118,16 +118,16 @@ Description: "Staging Systems used to stage lymphomas (Hodgkin's and non-Hodgkin
 * NCIT#C141178 "Lugano Classification Childhood Hodgkin Lymphoma by AJCC v8 Stage"
 * NCIT#C141158 "Lugano Classification Adult Non-Hodgkin Lymphoma by AJCC v8 Stage"
 
-ValueSet: LymphomaStageVS
-Id: pedcan-lymphoma-stage-vs
+ValueSet: LymphomaStageValueVS
+Id: pedcan-lymphoma-stage-value-vs
 Title: "Lymphoma Stage Value Set"
 Description: "Stage values used in lymphoma staging systems."
 * include codes from system SCT where concept descendant-of #385389007 "Lymphoma stage finding (finding)"
 * NCIT#C171157 "Ann Arbor Stage IIX (Bulky)"
 
-ValueSet: LymphomaModifierVS
-Id: pedcan-lymphoma-modifier-vs
-Title: "Lymphoma Modifier Value Set"
+ValueSet: LymphomaStageValueModifierVS
+Id: pedcan-lymphoma-stage-value-modifier-vs
+Title: "Lymphoma Value Modifier Value Set"
 Description: "Staging modifiers indicating symptoms and extent for lymphomas."
 * include codes from system SCT where concept descendant-of #106252000 "Staging classification for lymphoma (tumor staging)"
 
@@ -139,8 +139,8 @@ Description: "Rai Staging Systems used to stage chronic lymphocytic leukemia (CL
 * SCT#1149131009 "Rai staging system for chronic lymphocytic leukemia (tumor staging)"
 * NCIT#C141206  "Chronic Lymphocytic Leukemia- Modified Rai Staging System"
 
-ValueSet: RaiStageVS
-Id: pedcan-rai-stage-vs
+ValueSet: RaiStageValueVS
+Id: pedcan-rai-stage-value-vs
 Title: "Rai Stage Value Set"
 Description: "Codes in the Rai staging system representing Chronic Lymphocytic Leukemia (CLL) stage."
 * insert SNOMEDCopyrightForVS
@@ -158,8 +158,8 @@ Description: "Methods for staging Wilms Tumors that differentiate the original N
 * include SCT#254364004 "National Wilms' tumor study staging system (tumor staging)"
 * include NCIT#C140271 "Children's Oncology Group/National Wilms' Tumor Study Group Staging System"
 
-ValueSet: WilmsTumorStageVS
-Id: pedcan-wilms-tumor-stage-vs
+ValueSet: WilmsTumorStageValueVS
+Id: pedcan-wilms-tumor-stage-value-vs
 Title: "Wilms Stage Value Set"
 Description: "Stages I-V for Wilms Tumor Staging."
 * insert SNOMEDCopyrightForVS

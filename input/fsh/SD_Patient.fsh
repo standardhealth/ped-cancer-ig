@@ -62,10 +62,6 @@ Description: "Value set for Lansky Play-Performance performance status."
 * NCIT#C69425 "Lansky Performance Status 90"
 * NCIT#C69426 "Lansky Performance Status 100" 
 
-// One BSA profile or two? What are the pros and cons here?
-// Is there such a thing as measured BSA?
-// Do we need to include the formula used (e.g., Du Bois, Haycock, Boyd, Fujimoto, Takahira, etc.)?
-
 Profile: BodySurfaceArea
 Parent: USCoreVitalSignsProfile
 Id: pedcan-body-surface-area
@@ -73,7 +69,7 @@ Title: "Body Surface Area"
 Description: "Entire body surface area, either measured or calculated."
 * code = LNC#8277-6 // Body Surface Area
 * value[x] only Quantity
-//* valueQuantity = UCUM#m2  <---CURRENTLY CAUSING PUBLISHER TO CRASH
+//* valueQuantity = UCUM#m2 <-- THIS LINE IS CAUSING THE PUBLISHER TO CRASH 6/30/2023 VERSION 1.3.20
 * method from BSAMethodVS (extensible)
 
 ValueSet: BSAMethodVS
