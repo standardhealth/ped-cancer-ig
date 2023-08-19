@@ -14,7 +14,7 @@ Description: "A period of time marked by the application of a certain therapeuti
 Extension: PhaseName
 Id: pedcan-phase-name
 Title:  "Phase"
-Description: "The name of the phase during which relevant observations were recorded. While 'code' refers the general category of the phase (e.g., a condition pahse), the phase name is more specific (e.g., acute phase)"
+Description: "The name of the phase during which relevant observations were recorded. While 'code' refers the general category of the phase (e.g., a condition phase), the phase name is more specific (e.g., acute phase)"
 * value[x] only CodeableConcept
 * value[x] 1..1
 
@@ -56,14 +56,6 @@ Description: "The protocol treatment 'course' during which relevant observations
 * code = NCIT#C168807  //  Protocol Treatment Course
 * extension[phaseName].value[x] from CoursePhaseValueVS
 
-Profile: DiseasePhase
-Parent: Phase
-Id: pedcan-disease-phase
-Description: "The phase of the cancer treatment process during which relevant observations were recorded. This profile is used across domains to frame the timing of these longitudinal observations and reduce the number of redundant variables needed to report similar concepts."
-* subject only Reference(Patient or ResearchSubject)  // which?
-* code = NCIT#C168878  // or SCT#278174000 "Disease phase (attribute)"
-* extension[phaseName].value[x] from DiseasePhaseValueVS
-
 ValueSet: CoursePhaseValueVS
 Id: pedcan-course-phase-value-vs
 Title: "Course Phase Value Set"
@@ -73,6 +65,14 @@ Description: "The phase of the treatment associated with the protocol 'course'."
 * SCT#367336001 "Chemotherapy (procedure)"
 * SCT#400001000004103 "Neoadjuvant antineoplastic therapy (procedure)"
 * SCT#314122007 "Maintenance therapy (procedure)"
+
+Profile: DiseasePhase
+Parent: Phase
+Id: pedcan-disease-phase
+Description: "The phase of the cancer treatment process during which relevant observations were recorded. This profile is used across domains to frame the timing of these longitudinal observations and reduce the number of redundant variables needed to report similar concepts."
+* subject only Reference(Patient or ResearchSubject)  // which?
+* code = SCT#278174000 "Disease phase (attribute)"
+* extension[phaseName].value[x] from DiseasePhaseValueVS
 
 ValueSet: DiseasePhaseValueVS
 Id: pedcan-disease-phase-value-vs

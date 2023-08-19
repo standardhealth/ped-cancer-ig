@@ -14,23 +14,21 @@ B-cell ALL, T-cell ALL  - Currently, there is no staging system for acute lympho
 Consider the WHO classification of myeloid neoplasms and acute leukemia? see https://ashpublications.org/blood/article/127/20/2391/35255/The-2016-revision-to-the-World-Health-Organization
 */
 
-//  Binet Staging System for CLL
-
-Profile: BinetStage
-Id: pedcan-binet-stage
-Parent: CancerStageGroup
-Title: "Binet stage for chronic lymphocytic leukemia"
-Description: "Binet stage for chronic lymphocytic leukemia"
-* insert NotUsed(component)
-* code = NCIT#C141212 // Binet Stage -- need a SNOMED code
-* method = SCT#1149099005 // "Binet staging classification for chronic lymphocytic leukemia (tumor staging)"
-* value[x] from BinetStageValueVS (required)
+Profile: ALLClassification
+Id: pedcan-all-fab-classification
+Parent: CancerStage  // is the FAB classification really a stage?
+Title: "ALL French-American-British Classification Profile"
+Description: "French-American-British (FAB) stage for acute lymphoblastic leukemia (ALL)"
+* ^extension[FMM].valueInteger = 0
+* code = NCIT#C91220 // French-American-British Classification
+* value[x] from FABClassificationValueVS (required)
 
 Profile: CMLPhase
 Id: pedcan-cml-phase
-Parent: CancerStageGroup   // consider if this is a better as a CancerDiseaseStatus
+Parent: CancerStage   // since this is a phase, is it appropriate to inherit from CancerStage?
 Title: "Chronic Myeloid Leukemia Phase Profile"
 Description: "Phase of Chronic Myeloid Leukemia (CML) observed at a specified point in time."
+* ^extension[FMM].valueInteger = 0
 * insert NotUsed(component)
 * code = MDR#10066506  // CML Progression (code from medDRA; no suitable codes in NCIT, SCT, or LNC)
 * value[x] from CMLPhaseValueVS (required)
@@ -46,82 +44,39 @@ Description: "Binet stage for acute lymphoblastic leukemia"
 * code = NCIT#C91220 // French-American-British Classification
 * value[x] from FABClassificationValueVS (required)
 
-// International Federation of Gynecology and Obstetrics (FIGO)
 
-Profile: FIGOStage
-Id: pedcan-figo-stage
-Parent: CancerStageGroup
-Title: "FIGO Stage Profile"
-Description: "International Federation of Gynecology and Obstetrics (FIGO) Staging Profile"
-* insert NotUsed(component)
-* code from FIGOStageTypeVS (extensible)
-* method from FIGOStagingMethodVS (extensible)
-* value[x] from FIGOStageValueVS (extensible)
+// Neuroblastoma Staging
 
-//  International Neuroblastoma Staging System (INSS)
-
-Profile: INSSStage
-Id: pedcan-inss-stage
-Parent: CancerStageGroup
-Title: "International Neuroblastoma Stage Profile"
+Profile: NeuroblastomaINSSStage
+Id: pedcan-neuroblastoma-inss-stage
+Parent: CancerStage
+Title: "Neuroblastoma INNS Stage Profile"
 Description: "The International Neuroblastoma Staging System (INSS) stage for neuroblastoma."
-* insert NotUsed(component)
+* ^extension[FMM].valueInteger = 0
 * code = SCT#409720004  // International neuroblastoma staging system stage (observable entity)
-* value[x] from INSSStageValueVS (required)
+* value[x] from NeuroblastomaStageValueVS (required)
 
-//  International Neuroblastoma Risk Group Staging System (NRGSS)
-
-Profile: InternationalNeuroblastomaRiskGroup
+Profile: NeuroblastomaRiskGroup
 Id: pedcan-international-neuroblastoma-risk-group
-Parent: CancerStageGroup
-Title: "International Neuroblastoma Risk Group Profile"
-Description: "The stage according to the International Neuroblastoma Risk Group Staging System (INRGSS). It is based on preoperative imaging and determined prior to any treatment, including surgery."
-* insert NotUsed(component)
+Parent: CancerStage
+Title: "Neuroblastoma International Risk Group Profile"
+Description: "Neuroblastoma risk group according to the International Neuroblastoma Risk Group Staging System (INRGSS)."
+* ^extension[FMM].valueInteger = 0
 * code = NCIT#C192760 // International Neuroblastoma Risk Group
-* value[x] from INSSStageValueVS (required)
+* value[x] from NeuroblastomaRiskGroupValueVS (required)
 
-// Lymphoma Stage
-
-Profile: LymphomaStage
-Id: pedcan-lymphoma-stage
-Parent: CancerStageGroup
-Title: "Lymphoma Stage Profile"
-Description: "Ann Arbor Staging of Lymphoma. The Ann Arbor staging system is the same for both Hodgkins and Non-Hodgkins lymphoma, but the differences between Hodgkin's and non-Hodgkin's lymphoma lie in their cellular origin, presentation, and treatment approaches."
-* insert SNOMEDCopyrightForVS
-* code from LymphomaStageTypeVS (extensible)
-* method 1..1 MS
-* method from LymphomaStagingMethodVS
-* value[x] from LymphomaStageValueVS (required)
-* insert ObservationComponentSlicingRules
-* component contains stage-modifier 0..* and clin-or-path-modifier 0..1
-* component[stage-modifier].value[x] only CodeableConcept
-* component[stage-modifier].value[x] from LymphomaStageValueModifierVS
-* component[clin-or-path-modifier].value[x] only CodeableConcept
-* component[clin-or-path-modifier].value[x] from ClinOrPathModifierVS
-
-//  Rai Staging System for CLL
-
-Profile: RaiStage
-Id: pedcan-rai-stage
-Parent: CancerStageGroup
-Title: "Rai stage for chronic lymphocytic leukemia"
-Description: "Rai stage for chronic lymphocytic leukemia"
-* insert NotUsed(component)
-* code = NCIT#C141207 // Rai Stage -- need a SNOMED code
-* method from RaiStagingMethodVS
-* value[x] from RaiStageValueVS (required)
 
 //  Wilms Tumor Staging
 
 Profile: WilmsTumorStage
 Id: pedcan-wilms-tumor-stage
-Parent: CancerStageGroup
-Title: "Wilms Tumor Stage Profile"
-Description: "Profile for staging Wilms Tumors via National Wilms Tumor Study Group (NWTSG) Staging method or the National Wilms Tumor Study Group (NWTS) and updated by the Children's Oncology Group Renal Tumor Committee (COG/NWTSG)."
-* insert NotUsed(component)
+Parent: CancerStage
+Title: "Wilms Tumor (nephroblastoma) Stage Profile"
+Description: "Profile for staging Wilms Tumors by NWTSG"
+* ^extension[FMM].valueInteger = 0
 * code = SCT#405931009 // National Wilms Tumor Study Group Stage
+* code.text = "Wilms Tumor Stage"  // no code for this in SCT, LOINC, or NCIT
 * value[x] from WilmsTumorStageValueVS (required)
-* method from WilmsTumorStagingMethodVS (extensible)
 * bodySite from WilmsTumorBodySiteVS (extensible)
 
 
