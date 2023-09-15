@@ -1,3 +1,9 @@
+/*
+
+Not high priority
+
+
+
 Profile: Phase
 Parent: Basic
 Id: pedcan-phase
@@ -118,3 +124,5 @@ Description: "Example of Patient"
 * address.country = "US"
 * communication.language = urn:ietf:bcp:47#en-US "English (Region=United States)"
 * communication.language.text = "English"
+
+*/

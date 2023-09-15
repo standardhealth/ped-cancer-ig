@@ -1,11 +1,3 @@
-ValueSet: BinetStageValueVS
-Id: pedcan-binet-stage-value-vs
-Title: "Binet Stage Value Set"
-Description: "Codes in the Binet staging system representing Chronic Lymphocytic Leukemia (CLL) stage."
-* NCIT#C80134 "Binet Stage A"
-* NCIT#C80135 "Binet Stage B"
-* NCIT#C80136 "Binet Stage C"
-
 ValueSet: CMLPhaseValueVS
 Id: pedcan-cml-phase-value-vs
 Title: "Chronic Myeloid Leukemia Phase Value Set"
@@ -16,38 +8,12 @@ Description: "Phases of Chronic Myeloid Leukemia (CML)"
 //* SCT#278180008 "Blast crisis (qualifier value)"
 * SCT#255251009 "Acute phase (qualifier value)"  // aka Blast phase
 
-ValueSet: FABClassificationValueVS
-Id: pedcan-fab-classification-value-vs
-Title: "FAB Classification"
-Description: "French American British classification for acute myeloid leukemias, acute lymphoblastic leukemias, and myelodysplastic syndromes."
-* insert SNOMEDCopyrightForVS
-* include codes from system SCT where concept descendant-of #278159002 "French-American-British type values (qualifier value)"
-
-ValueSet: NeuroblastomaRiskGroupValueVS
-Id: pedcan-neuroblastoma-risk-group-value-vs
-Title: "International Neuroblastoma Risk Group Value Set"
-Description: "Codes in International Neuroblastoma Risk Group. It includes two stages of localized disease (L1 and L2) and two stages of metastatic disease (M and MS)."
-* ^experimental = false
-* NCIT#C133428 "INRG Stage L1"
-* NCIT#C133429 "INRG Stage L2"
-* NCIT#C133430 "INRG Stage M"
-* NCIT#C133431 "INRG Stage MS"
-
 ValueSet: NeuroblastomaStageValueVS
 Id: pedcan-neuroblastoma-inss-stage-value-vs
 Title: "International Neuroblastoma Staging System (INSS) Stage Value Set"
 Description: "Codes in INSS staging system representing neuroblastoma stage."
 * insert SNOMEDCopyrightForVS
 * include codes from system SCT where concept descendant-of #409721000 "International neuroblastoma staging system stage finding (finding)"
-
-//ValueSet: WilmsTumorStagingMethodVS
-//Id: pedcan-wilms-tumor-staging-method-vs
-//Title: "Wilms Tumor Staging Method Value Set"
-//Description: "Methods for staging Wilms Tumors, differentiating the original National Wilms' tumor study staging system from the Children's Oncology Group modification of the National Wilms' Tumor Study Group Staging System."
-//* insert SNOMEDCopyrightForVS
-//* SCT#254364004 "National Wilms' tumor study staging system (tumor staging)"
-//* NCIT#C140271 "Children's Oncology Group/National Wilms' Tumor Study Group Staging System"
-//* NCIT#C198026 "International Society of Pediatric Oncology (SIOP) Stage" // European
 
 ValueSet: WilmsTumorStageValueVS
 Id: pedcan-wilms-tumor-stage-value-vs
@@ -64,6 +30,29 @@ Description: "Codes indicating the location of Wilms Tumor"
 * insert SNOMEDCopyrightForVS
 * include codes from system SCT where concept is-a #18639004 "Left kidney structure (body structure)"
 * include codes from system SCT where concept is-a #9846003 "Right kidney structure (body structure)"
+
+
+ValueSet: NeuroblastomaRiskGroupValueVS
+Id: pedcan-neuroblastoma-risk-group-value-vs
+Title: "International Neuroblastoma Risk Group Value Set"
+Description: "Codes in International Neuroblastoma Risk Group. It includes two stages of localized disease (L1 and L2) and two stages of metastatic disease (M and MS)."
+* ^experimental = false
+* NCIT#C133428 "INRG Stage L1"
+* NCIT#C133429 "INRG Stage L2"
+* NCIT#C133430 "INRG Stage M"
+* NCIT#C133431 "INRG Stage MS"
+
+
+//ValueSet: WilmsTumorStagingMethodVS
+//Id: pedcan-wilms-tumor-staging-method-vs
+//Title: "Wilms Tumor Staging Method Value Set"
+//Description: "Methods for staging Wilms Tumors, differentiating the original National Wilms' tumor study staging system from the Children's Oncology Group modification of the National Wilms' Tumor Study Group Staging System."
+//* insert SNOMEDCopyrightForVS
+//* SCT#254364004 "National Wilms' tumor study staging system (tumor staging)"
+//* NCIT#C140271 "Children's Oncology Group/National Wilms' Tumor Study Group Staging System"
+//* NCIT#C198026 "International Society of Pediatric Oncology (SIOP) Stage" // European
+
+
 
 /* The following are pediatric codes removed from mCODE for inclusion in the pedcan IG
 
@@ -106,4 +95,14 @@ STAGING METHODS
 * NCIT#C140270 "International Society of Pediatric Oncology Staging System"
 * NCIT#C177550 "IRS Clinical Staging System"  // Intergroup Rhabdomyosarcoma Studies (IRS) 
 * NCIT#C148010 "Intergroup Rhabdomyosarcoma Study Group Clinical Staging and Grouping System"
+*/
+
+
+/*
+ValueSet: FABClassificationValueVS // TRG says is outdated
+Id: pedcan-fab-classification-value-vs
+Title: "FAB Classification"
+Description: "French American British classification for acute myeloid leukemias, acute lymphoblastic leukemias, and myelodysplastic syndromes."
+* insert SNOMEDCopyrightForVS
+* include codes from system SCT where concept descendant-of #278159002 "French-American-British type values (qualifier value)"
 */

@@ -1,9 +1,9 @@
-Instance: all-fab-classification-M5b
-InstanceOf: ALLClassification
-Description: "Example of FAB (French-American-British) staging of acute lymphoblastic leukemia (ALL)."
-* insert StagingInstanceRuleSet
-* code = NCIT#C91220 "French-American-British Classification"
-* valueCodeableConcept = SCT#278171008 "French-American-British type M5b (qualifier value)"
+RuleSet: StagingInstanceRuleSet
+* status = #final "final"
+* focus = Reference(primary-cancer-condition-nonspecific)
+* subject = Reference(cancer-patient-john-anyperson)
+* performer = Reference(us-core-practitioner-kyle-anydoc)
+* effectiveDateTime = "2021-04-01"
 
 Instance: cml-phase-chronic
 InstanceOf: CMLPhase
@@ -34,3 +34,19 @@ Description: "Example of Neuroblastoma risk group according to the International
 * insert StagingInstanceRuleSet
 * code = NCIT#C192760 "International Neuroblastoma Risk Group"
 * valueCodeableConcept = NCIT#C133429 "INRG Stage L2"
+
+
+/*
+
+Not high priority 
+
+Instance: all-fab-classification-M5b
+InstanceOf: ALLClassification
+Description: "Example of FAB (French-American-British) staging of acute lymphoblastic leukemia (ALL)."
+* insert StagingInstanceRuleSet
+* code = NCIT#C91220 "French-American-British Classification"
+* valueCodeableConcept = SCT#278171008 "French-American-British type M5b (qualifier value)"
+
+
+
+*/

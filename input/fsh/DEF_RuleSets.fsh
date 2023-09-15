@@ -2,11 +2,6 @@ RuleSet: ExtensionContext(path)
 * ^context[+].type = #element
 * ^context[=].expression = "{path}"
 
-// Probably not needed since the disease phase and course number can be determined from time stamps on resources
-RuleSet: CourseAndDiseasePhase
-* extension contains DiseasePhaseNumber named diseasePhaseNumber 0..1 MS
-* extension contains CourseNumber named courseNumber 0..1 MS
-
 RuleSet: NotUsed(path)
 * {path} ^short = "Not used in this profile"
 * {path} ^definition = "Not used in this profile"
@@ -47,3 +42,13 @@ RuleSet: SliceReferenceOnProfile(path)
 * {path} ^slicing.discriminator.path = "$this.resolve()"
 * {path} ^slicing.rules = #open
 * {path} ^slicing.description = "Slicing based on profile conformance of the referenced resource."
+
+/*
+Not high priority
+
+// Probably not needed since the disease phase and course number can be determined from time stamps on resources
+RuleSet: CourseAndDiseasePhase
+* extension contains DiseasePhaseNumber named diseasePhaseNumber 0..1 MS
+* extension contains CourseNumber named courseNumber 0..1 MS
+
+*/

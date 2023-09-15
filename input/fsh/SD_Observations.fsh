@@ -1,17 +1,6 @@
 Alias:   USCoreObservationLab = http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
 Alias:   USCoreCondition = http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns
 
-Profile: TumorNecrosisObservation
-Parent: USCoreObservationLab
-Id: pedcan-tumor-necrosis-observation
-Title: "Tumor Necrosis Observation"
-Description: "The percentage necrosis for a tumor or tumors"
-* focus 1..1
-* focus only Reference(Tumor or USCoreCondition)  // possible SUSHI bug TBD: does not work as Reference(Tumor or PrimaryCancerCondition)
-* code = SCT#405921002 // Percentage of tumor involved by necrosis (observable entity)
-* value[x] only Quantity
-* valueQuantity = UCUM#%
-* value[x] ^definition = "Percentage necrosis in tumor or overall."
 
 Profile: SurgicalTumorMargin
 Parent: USCoreObservationLab
@@ -37,6 +26,23 @@ Description:  "Codes describing the result of macro- or microscopic examination 
 * SCT#442479004	"Surgical margins of excised lesion not clear"
 * SCT#55182004 "Surgical margins free of tumor"
 
+
+/*
+
+Not high-priority
+
+Profile: TumorNecrosisObservation
+Parent: USCoreObservationLab
+Id: pedcan-tumor-necrosis-observation
+Title: "Tumor Necrosis Observation"
+Description: "The percentage necrosis for a tumor or tumors"
+* focus 1..1
+* focus only Reference(Tumor or USCoreCondition)  // possible SUSHI bug TBD: does not work as Reference(Tumor or PrimaryCancerCondition)
+* code = SCT#405921002 // Percentage of tumor involved by necrosis (observable entity)
+* value[x] only Quantity
+* valueQuantity = UCUM#%
+* value[x] ^definition = "Percentage necrosis in tumor or overall."
+
 Profile: CentralNervousSystemInvolvement
 Parent: USCoreObservationLab
 Id: pedcan-cns-involvement
@@ -59,6 +65,10 @@ Description: "Codes describing the degree of CNS involvement at the time of leuk
 * NCIT#C116840 "CNS3a: The status of central nervous system leukemia at diagnosis, where there are less than 10 red blood cells and 5 or more white blood cells per microliter on a cerebral spinal fluid cytospin preparation that is positive for blasts."
 * NCIT#C116841 "CNS3b: The status of central nervous system leukemia at diagnosis, where there are 10 or more red blood cells and 5 or more white blood cells per microliter on a cerebral spinal fluid cytospin preparation that is considered positive by Steinherz/Bleyer algorithm."
 * NCIT#C116843 "CNS3c: The status of central nervous system leukemia at diagnosis, where there are clinical signs of central system leukemia (such as facial nerve palsy, brain/eye involvement, or hypothalamic syndrome)."
+
+
+
+*/
 
 
 
