@@ -43,6 +43,53 @@ Description: "Codes in International Neuroblastoma Risk Group. It includes two s
 * NCIT#C133431 "INRG Stage MS"
 
 
+ValueSet: MIPIValueVS
+Id: pedcan-MIPI-value-vs
+Title: "Mantle Cell Lymphoma International Prognostic Index Value Set"
+Description: "Values used in the Mantle Cell Lymphoma International Prognostic Index."
+* ^experimental = false
+* NCIT#C137810 "High Risk Mantle Cell Lymphoma International Prognostic Index Combined Biologic Index"
+* NCIT#C137809 "High-Intermediate Risk Mantle Cell Lymphoma International Prognostic Index Combined Biologic Index"
+* NCIT#C137807 "Low Risk Mantle Cell Lymphoma International Prognostic Index Combined Biologic Index"
+* NCIT#C137808 "Low-Intermediate Risk Mantle Cell Lymphoma International Prognostic Index Combined Biologic Index"
+
+
+ValueSet: RhabdomyosarcomaStageValueVS
+Id: pedcan-rhabdomyosarcoma-stage-value-vs
+Title: "Rhabdomyosarcoma Stage Value Set"
+Description: "Values used in the Rhabdomyosarcoma Staging System"
+* ^experimental = false
+* insert SNOMEDCopyrightForVS
+* SCT#723505004 "Low risk (qualifier value)"
+* SCT#723509005 "High risk (qualifier value)"
+* NCIT#C102402 "Intermediate Risk"
+//I couldn't find these values specific to this staging system
+
+ValueSet: ClinicalGroupValueModifierVS
+Id: pedcan-clinical-group-modifier-vs
+Title: "Clinical Group Modifier"
+Description: "An indication of whether rhabdomyosarcoma is confined to its primary location or has extended beyond the site of origin."
+* insert SNOMEDCopyrightForVS
+* include codes from system SCT where concept descendant-of #405917009 "Intergroup rhabdomyosarcoma study post-surgical clinical group finding (finding)"
+* NCIT#C148012 "Intergroup Rhabdomyosarcoma Group I"
+* NCIT#C148015 "Intergroup Rhabdomyosarcoma Group II"
+* NCIT#C148019 "Intergroup Rhabdomyosarcoma Group III"
+
+
+ValueSet: LeukemiaRiskGroupVS
+Id: pedcan-leukemia-risk-group-value-vs
+Title: "Leukemia Risk Group Value Set"
+Description: "Values used in the Leukemia Risk Group system"
+* ^experimental = false
+* NCIT#C122457 "Standard Risk Acute Leukemia"
+* NCIT#C122458 "High Risk Acute Leukemia"
+
+
+
+
+
+
+
 //ValueSet: WilmsTumorStagingMethodVS
 //Id: pedcan-wilms-tumor-staging-method-vs
 //Title: "Wilms Tumor Staging Method Value Set"

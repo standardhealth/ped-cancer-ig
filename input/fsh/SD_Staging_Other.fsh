@@ -37,6 +37,42 @@ Description: "Neuroblastoma risk group according to the International Neuroblast
 * code = NCIT#C192760 // International Neuroblastoma Risk Group
 * value[x] from NeuroblastomaRiskGroupValueVS (required)
 
+Profile: MIPIClassification
+Id: pedcan-mipi-score
+Parent: CancerStage
+Title: "Mantle Cell Lymphoma International Prognostic Index Profile"
+Description: "A scoring system designed to classify a patient's risk of mantle cell lymphoma progression or relapse and overall survival following therapy. It uses the criteria of patient's age, ECOG performance status, serum LDH activity, WBC count and Ki-67 index to classify patients into low risk, medium risk or high risk groups."
+//* ^extension[FMM].valueInteger = 0
+* code = SCT#763236005 // "Mantle Cell Lymphoma International Prognostic Index (assessment scale)"
+* value[x] from MIPIValueVS (required)
+
+Profile: RhabdomyosarcomaStage
+Id: pedcan-rhabdomyosarcoma-stage
+Parent: CancerStage
+Title: "Rhabdomyocaroma Stage Profile"
+Description: "Staging and grouping for rhabdomyosarcoma that groups patients into low, intermediate, or high clinical risk groups based on: histologic type, tumor site, tumor size, and pathologic TNM. Note: this is not the TNM system described in AJCC."
+//* ^extension[FMM].valueInteger = 0
+* code = NCIT#C148010 // "Intergroup Rhabdomyosarcoma Study Group Clinical Staging and Grouping System"
+* value[x] from LymphomaStageValueVS (required)
+* insert ObservationComponentSlicingRules
+* component contains clinical-group-modifier 0..1
+* component[clinical-group-modifier].value[x] only CodeableConcept
+* component[clinical-group-modifier].value[x] from ClinicalGroupValueModifierVS
+
+Profile: LeukemiaRiskGroup
+Id: pedcan-leukemia-risk-group
+Parent: CancerStage
+Title: "Leukemia Risk Group Profile"
+Description: "Refers to clinicopathologic findings related to leukemias."
+//* ^extension[FMM].valueInteger = 0
+* code = NCIT#C167435 // "Leukemia Finding"
+* value[x] from LeukemiaRiskGroupVS (required)
+//Greg R. mentioned a COG leukemia risk group system, which I found details for here - https://cancer.ca/en/cancer-information/cancer-types/leukemia-childhood/prognosis-and-survival/prognosis-for-all/risk-groups. However, I cannot find codes for the COG system or values anywhere...
+
+
+
+
+
 
 /*in mCODE STU3
 
