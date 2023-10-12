@@ -37,7 +37,7 @@ Description: "Phase of Chronic Myeloid Leukemia (CML) observed at a specified po
 
 Profile: FABClassification
 Id: pedcan-fab-classification
-Parent: CancerStageGroup  // ?
+Parent: CancerStage ///Group  // ?
 Title: "FAB Classification for acute lymphoblastic leukemia"
 Description: "Binet stage for acute lymphoblastic leukemia"
 * insert NotUsed(component)

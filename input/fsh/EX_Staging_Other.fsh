@@ -1,3 +1,14 @@
+
+Alias: FMM = http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm
+
+RuleSet: StagingInstanceRuleSet
+* status = #final "final"
+* focus = Reference(primary-cancer-condition-nonspecific)
+* subject = Reference(cancer-patient-john-anyperson)
+* performer = Reference(us-core-practitioner-kyle-anydoc)
+* effectiveDateTime = "2023-09-01"
+
+
 Instance: all-fab-classification-M5b
 InstanceOf: ALLClassification
 Description: "Example of FAB (French-American-British) staging of acute lymphoblastic leukemia (ALL)."
