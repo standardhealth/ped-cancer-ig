@@ -10,12 +10,12 @@ Description: "ICD-O-3 morphology determined from examination of tumor sample, co
 * result[histology] only Reference(HistologicType)
 * result[histology] ^short = "Histology Type being reported using ICD-O-3"
 * result[histology] ^definition = "The ICD-O-3 4-digit histology code for the tumor"
-* result[behavior] only Reference(HistologicBehavior)
-* result[behavior] ^short = "Tumor behavior code being reported using ICD-O-3"
-* result[behavior] ^definition = "The ICD-O-3 5th digit, a 1-digit behavior code for the tumor"
+//* result[behavior] only Reference(HistologicBehavior)
+//* result[behavior] ^short = "Tumor behavior code being reported using ICD-O-3"
+//* result[behavior] ^definition = "The ICD-O-3 5th digit, a 1-digit behavior code for the tumor"
 * result[grade] only Reference(HistologicGrade)
-* result[grade] ^short = "Tumor grade code being reported using ICD-O-3"
-* result[grade] ^definition = "The ICD-O-3 6th digit, a 1-digit grade or differentiation code for the tumor"
+* result[grade] ^short = "Tumor grade code being reported using SNOMED" //should I change this back to ICD-O-3?
+* result[grade] ^definition = "The histologic grade of the tumor"
 
 Profile: HistologicType
 Parent: USCoreObservationLab
@@ -26,16 +26,6 @@ Description: "Histologic type determined from examination of tumor sample."
 * code = LNC#31205-8 // Histology ICD-O-3 Cancer
 * value[x] only CodeableConcept
 * value[x] from HistologicTypeVS
-
-Profile: HistologicBehavior
-Parent: USCoreObservationLab
-Id: pedcan-histologic-behavior
-Title: "Histologic Behavior"
-Description: "Histologic behavior determined from examination of tumor sample."
-* specimen 1..1 MS
-* code = LNC#31206-6 // Behavior ICD-O-3 Cancer
-* value[x] only CodeableConcept
-* value[x] from HistologicBehaviorVS
 
 Profile: HistologicGrade
 Parent: USCoreObservationLab
@@ -54,6 +44,45 @@ Title: "Histologic Type Value Set"
 Description:  "A description of a tumor based on how abnormal the cancer cells and tissue look under a microscope and how quickly the cancer cells are likely to grow and spread."
 * include codes from system ICDO3  // should exclude topology codes, but no practical way to do this?
 
+ValueSet: HistologicGradeVS
+Id: pedcan-histologic-grade-vs
+Title: "Histologic Grade Value Set"
+Description:  "A description of a tumor based on how abnormal the cancer cells and tissue look under a microscope."
+//* insert SNOMEDCopyrightForVS
+//* include codes from system SCT where concept is-a #370114008 "Histological grades (qualifier value)"
+* SCT#1155708003 "Low histologic grade (qualifier value)"
+* SCT#1286893008 "Intermediate histologic grade (qualifier value)"
+* SCT#1155707008 "High histologic grade (qualifier value)"
+* SCT#57184004 "T lymphocyte (cell)"
+* SCT##112130006 "B lymphocyte (cell)"
+* SCT#54991005 "Null lymphocyte (cell)"
+* SCT#259717003 "Natural Killer cell (cell)"
+//* ICDO3#9 "Grade, cell type, or differentiation not determined, not stated, or not applicable"
+/*Team said low/mintermediate/high are more commonly used
+* ICDO3#1 "Grade I: Well differentiated"
+* ICDO3#2 "Grade II: Moderately differentiated"
+* ICDO3#3 "Grade III: Poorly differentiated"
+* ICDO3#4 "Grade IV: Undifferentiated"*/
+
+ValueSet: HistologicGradingSystemVS
+Id: pedcan-histologic-grading-system-vs
+Title: "Histologic Grading System Value Set"
+Description:  "A description of a tumor based on how abnormal the cancer cells and tissue look under a microscope and how quickly the cancer cells are likely to grow and spread."
+* insert SNOMEDCopyrightForVS
+* include codes from system SCT where concept is-a #277457005 "Histological grading systems (staging scale)"
+
+/* don't think we need, based on team feedback
+
+Profile: HistologicBehavior
+Parent: USCoreObservationLab
+Id: pedcan-histologic-behavior
+Title: "Histologic Behavior"
+Description: "Histologic behavior determined from examination of tumor sample."
+* specimen 1..1 MS
+* code = LNC#31206-6 // Behavior ICD-O-3 Cancer
+* value[x] only CodeableConcept
+* value[x] from HistologicBehaviorVS
+
 ValueSet: HistologicBehaviorVS
 Id: pedcan-histologic-behavior-vs
 Title: "Histologic Behavior Value Set"
@@ -63,27 +92,4 @@ Description:  "How likely the cancer cells are likely to grow and spread."
 * ICDO3#/2 "Carcinoma in situ"
 * ICDO3#/3 "Malignant, primary site"
 * ICDO3#/6 "Malignant, metastatic site"
-* ICDO3#/9 "Malignant, uncertain whether primary or metastatic site"
-
-ValueSet: HistologicGradeVS
-Id: pedcan-histologic-grade-vs
-Title: "Histologic Grade Value Set"
-Description:  "A description of a tumor based on how abnormal the cancer cells and tissue look under a microscope."
-//* insert SNOMEDCopyrightForVS
-//* include codes from system SCT where concept is-a #370114008 "Histological grades (qualifier value)"
-* ICDO3#1 "Grade I: Well differentiated"
-* ICDO3#2 "Grade II: Moderately differentiated"
-* ICDO3#3 "Grade III: Poorly differentiated"
-* ICDO3#4 "Grade IV: Undifferentiated"
-* ICDO3#5 "T-cell"
-* ICDO3#6 "B-cell"
-* ICDO3#7 "Null cell"
-* ICDO3#8 "NK cell"
-* ICDO3#9 "Grade, cell type, or differentiation not determined, not stated, or not applicable"
-
-ValueSet: HistologicGradingSystemVS
-Id: pedcan-histologic-grading-system-vs
-Title: "Histologic Grading System Value Set"
-Description:  "A description of a tumor based on how abnormal the cancer cells and tissue look under a microscope and how quickly the cancer cells are likely to grow and spread."
-* insert SNOMEDCopyrightForVS
-* include codes from system SCT where concept is-a #277457005 "Histological grading systems (staging scale)"
+* ICDO3#/9 "Malignant, uncertain whether primary or metastatic site"*/

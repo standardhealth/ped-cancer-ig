@@ -1,9 +1,3 @@
-/*
-
-Not high priority
-
-
-
 Profile: Phase
 Parent: Basic
 Id: pedcan-phase
@@ -54,6 +48,37 @@ Description: "Text description of the resource."
 
 // Specific types of Phase
 
+
+Profile: DiseasePhase
+Parent: Phase
+Id: pedcan-disease-phase
+Description: "The phase of the cancer treatment process during which relevant observations were recorded. This profile is used across domains to frame the timing of these longitudinal observations and reduce the number of redundant variables needed to report similar concepts."
+* subject only Reference(Patient or ResearchSubject)  // which?
+* code = SCT#278174000 "Disease phase (attribute)"
+* extension[phaseName].value[x] from DiseasePhaseValueVS
+
+ValueSet: DiseasePhaseValueVS
+Id: pedcan-disease-phase-value-vs
+Title: "Disease Phase Value Set"
+Description: "Value set for phases of disease."
+* insert SNOMEDCopyrightForVS
+* SCT#263855007 "Relapse phase (qualifier value)"
+* SCT#246455001 "Recurrence (qualifier value)"
+* SCT#723506003 "Resolved (qualifier value)"
+* SCT#20646008 "Intractable (qualifier value)"
+* include codes from system SCT where concept is-a SCT#277022003 "Remission phase (qualifier value)"
+* NCIT#C15903 "No Prior Cancer Therapy"
+* NCIT#C16124 "Prior Therapy"
+* NCIT#C19987 "Cancer Progression"
+* NCIT#C156813 "Initial Diagnosis"
+// missing initial and progressing. Do we also need stable?
+//* SCT#255251009 "Acute phase (qualifier value)"  // substitute for "initial" ? I don't really think this makes sense?
+
+
+/*
+
+Not high priority
+
 Profile: CoursePhase
 Parent: Phase
 Id: pedcan-course-phase
@@ -72,23 +97,7 @@ Description: "The phase of the treatment associated with the protocol 'course'."
 * SCT#400001000004103 "Neoadjuvant antineoplastic therapy (procedure)"
 * SCT#314122007 "Maintenance therapy (procedure)"
 
-Profile: DiseasePhase
-Parent: Phase
-Id: pedcan-disease-phase
-Description: "The phase of the cancer treatment process during which relevant observations were recorded. This profile is used across domains to frame the timing of these longitudinal observations and reduce the number of redundant variables needed to report similar concepts."
-* subject only Reference(Patient or ResearchSubject)  // which?
-* code = SCT#278174000 "Disease phase (attribute)"
-* extension[phaseName].value[x] from DiseasePhaseValueVS
 
-ValueSet: DiseasePhaseValueVS
-Id: pedcan-disease-phase-value-vs
-Title: "Disease Phase Value Set"
-Description: "Value set for phases of disease."
-* insert SNOMEDCopyrightForVS
-* SCT#255251009 "Acute phase (qualifier value)"  // substitute for "initial" ?
-* SCT#263855007 "Relapse phase (qualifier value)"
-* include codes from system SCT where concept is-a SCT#277022003 "Remission phase (qualifier value)"
-// missing initial and progressing. Do we also need stable?
 
 
 // EXAMPLE
