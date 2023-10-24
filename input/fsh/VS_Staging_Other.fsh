@@ -129,6 +129,7 @@ Description: "If the lymphoma has bulk disease or not"
 * insert SNOMEDCopyrightForVS
 * SCT#260385009 "Negative"
 * SCT#10828004 "Positive"
+//there is no "bulky disease absent" value, so I just included positive and negative...thoughts?
 
 
 
