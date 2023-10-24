@@ -1,30 +1,3 @@
-Profile: PediatricCancerPatient
-Parent: CancerPatient
-Id: pedcan-pediatric-cancer-patient
-Title: "Pediatric Cancer Patient"
-Description: "A pediatric patient being treated for cancer"
-* extension contains RankedCauseOfDeath named rankedCauseOfDeath 0..* MS
-
-Extension: RankedCauseOfDeath
-Id: pedcan-causes-of-death
-Title: "Ranked causes of death"
-Description: "The circumstances or conditions that resulted in the death of a living being, with ranking."
-* insert ExtensionContext(Patient)
-* extension contains
-    causeOfDeath 1..1 MS and
-    rank 1..1 MS
-* extension[causeOfDeath].value[x] only CodeableConcept
-* extension[causeOfDeath].value[x] from CauseOfDeathVS
-* extension[rank].value[x] only positiveInt
-
-// as defined by https://build.fhir.org/ig/HL7/vrdr/ValueSet-vrdr-icd10-causes-of-death-vs.html
-ValueSet: CauseOfDeathVS
-Id: pedcan-cause-of-death-vs
-Title: "Cause of Death Value Set"
-Description: "ICD-10 codes for cause of death."
-* ^experimental = true
-* include codes from system ICD10
-
 Profile: LanskyPerformanceStatus
 Parent:  USCoreClinicalTest
 Id: pedcan-lansky-performance-status
@@ -109,3 +82,34 @@ Description: "Value set for survival status."
 * SCT#419099009 "Dead (finding)"
 */
 
+
+/*Not high priority
+
+Profile: PediatricCancerPatient
+Parent: CancerPatient
+Id: pedcan-pediatric-cancer-patient
+Title: "Pediatric Cancer Patient"
+Description: "A pediatric patient being treated for cancer"
+* extension contains RankedCauseOfDeath named rankedCauseOfDeath 0..* MS
+
+Extension: RankedCauseOfDeath
+Id: pedcan-causes-of-death
+Title: "Ranked causes of death"
+Description: "The circumstances or conditions that resulted in the death of a living being, with ranking."
+* insert ExtensionContext(Patient)
+* extension contains
+    causeOfDeath 1..1 MS and
+    rank 1..1 MS
+* extension[causeOfDeath].value[x] only CodeableConcept
+* extension[causeOfDeath].value[x] from CauseOfDeathVS
+* extension[rank].value[x] only positiveInt
+
+// as defined by https://build.fhir.org/ig/HL7/vrdr/ValueSet-vrdr-icd10-causes-of-death-vs.html
+ValueSet: CauseOfDeathVS
+Id: pedcan-cause-of-death-vs
+Title: "Cause of Death Value Set"
+Description: "ICD-10 codes for cause of death."
+* ^experimental = true
+* include codes from system ICD10
+
+*/

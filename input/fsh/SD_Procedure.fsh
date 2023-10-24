@@ -12,13 +12,6 @@ Description: "Surgery to remove tissue or part or all of an organ or limb due to
 * code from SurgicalResectionProcedureVS
 * outcome from SurgicalResectionOutcomeVS
 
-Profile: BiopsyProcedure
-Parent: CancerRelatedSurgicalProcedure
-Id: pedcan-biopsy-procedure
-Title: "Biopsy Procedure"
-Description: "Surgery to remove tissue for diagnostic purposes."
-* code from BiopsyProcedureVS
-
 Profile: SurgicalReconstructionProcedure
 Parent: CancerRelatedSurgicalProcedure
 Id: pedcan-surgical-reconstruction-procedure
@@ -50,13 +43,6 @@ Description:  "Codes that describe the macroscopic outcome surgical resections. 
 * NCIT#C131672 "Gross Total Resection"
 * NCIT#C131680 "Partial Resection"
 
-ValueSet: BiopsyProcedureVS
-Id: pedcan-biopsy-procedure-vs
-Title: "Biopsy Procedure Value Set"
-Description:  "Codes that describe biopsy procedures."
-* insert SNOMEDCopyrightForVS
-* include codes from system SCT where concept is-a #86273004 "Biopsy (procedure)"
-
 ValueSet: SurgicalReconstructionProcedureVS
 Id: pedcan-surgical-reconstruction-procedure-vs
 Title: "Surgical Reconstruction Procedure Value Set"
@@ -70,3 +56,22 @@ Title: "Surgical Amputation Procedure Value Set"
 Description:  "Codes that describe surgical amputation."
 * insert SNOMEDCopyrightForVS
 * include codes from system SCT where concept is-a #81723002 "Amputation (procedure)"
+
+
+/* not high priority
+
+Profile: BiopsyProcedure
+Parent: CancerRelatedSurgicalProcedure
+Id: pedcan-biopsy-procedure
+Title: "Biopsy Procedure"
+Description: "Surgery to remove tissue for diagnostic purposes."
+* code from BiopsyProcedureVS
+
+ValueSet: BiopsyProcedureVS
+Id: pedcan-biopsy-procedure-vs
+Title: "Biopsy Procedure Value Set"
+Description:  "Codes that describe biopsy procedures."
+* insert SNOMEDCopyrightForVS
+* include codes from system SCT where concept is-a #86273004 "Biopsy (procedure)"
+
+*/
