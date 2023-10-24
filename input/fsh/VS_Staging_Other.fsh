@@ -98,6 +98,39 @@ Description: "Values used in the Deauville assessment"
 * NCIT#C136879 "London Deauville Criteria Point Scale X"
 
 
+ValueSet: RiskAssessmentMethodVS
+Id: pedcan-risk-assessment-method-vs
+Title: "Risk Assessment Method Value Set"
+Description: "Risk assessment methods"
+* ^experimental = false
+* insert SNOMEDCopyrightForVS
+* NCIT#C177316 "Malignant Germ Cell International Collaborative Risk Classification"
+* SCT#1287646007 "International Germ Cell Consensus Classification (tumor staging)"
+
+
+ValueSet: RiskAssessmentValueVS 
+Id: pedcan-risk-assessment-vs
+Title: "Risk Assessment Value Set"
+Description: "Risk assessment values"
+* ^experimental = false
+* insert SNOMEDCopyrightForVS
+* SCT#260362008 "Very low (qualifier value)"
+* SCT#62482003 "Low (qualifier value)"
+* SCT#11896004 "Intermediate (qualifier value)"
+* SCT#75540009 "High (qualifier value)"
+* SCT#260360000 "Very high (qualifier value)"
+
+
+ValueSet: LymphomaStageBulkyModifierVS
+Id: pedcan-lymphoma-stage-bulky-modifier-vs
+Title: "Lymphoma Stage Bulky Modifier Value Set"
+Description: "If the lymphoma has bulk disease or not"
+* ^experimental = false
+* insert SNOMEDCopyrightForVS
+* SCT#260385009 "Negative"
+* SCT#10828004 "Positive"
+
+
 
 
 
