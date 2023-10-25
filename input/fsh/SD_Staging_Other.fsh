@@ -80,6 +80,28 @@ Description: "A 5 point scale devised to assess the response to treatment of Hod
 * value[x] from DeauvilleScoreValueVS (required)
 
 
+Profile: RiskGroup
+Id: pedcan-risk-group
+Parent: CancerStage
+Title: "Cancer Risk Group Profile"
+Description: "Profile for observations regarding risk group."
+* ^extension[FMM].valueInteger = 0
+* code = SCT#225338004 "Risk assessment (procedure"
+* method from RiskAssessmentMethodVS (extensible)
+* value[x] from RiskAssessmentValueVS (extensible)
+
+
+Profile: LymphomaStageBulky //lymphoma is already in mCODE, just showing how the profile could look with a bulky modifier
+Id: pedcan-lymphoma-stage-bulky
+Parent: LymphomaStage
+Title: "Lymphoma Stage Profile"
+Description: "Staging of lymphoma (both Hodgkins and Non-Hodgkins) by Ann Arbor, Cotswold, or Lugano staging systems. The method (required) indicates which of these related staging systems was used."
+* ^extension[FMM].valueInteger = 0
+* component contains bulky-modifier 0..*
+* component[bulky-modifier].value[x] only CodeableConcept
+* component[bulky-modifier].value[x] from LymphomaStageBulkyModifierVS
+
+
 
 
 /*in mCODE STU3
