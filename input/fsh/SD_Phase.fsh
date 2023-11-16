@@ -1,21 +1,10 @@
-Profile: Phase
-Parent: Basic
-Id: pedcan-phase
-Description: "A period of time marked by the application of a certain therapeutic approch, disease phase, or other distinguishable health or treatment status. The code element (Basic.code) represents the category of phase (e.g., a treatment phase or a disease phase), while the Phase represents the specific type of the phase (e.g., acute phase of a disease)."
-* ^abstract = true
-* extension contains PhaseName named phaseName 0..1 MS
-* extension contains PhaseNumber named phaseNumber 1..1 MS
-* extension contains PhaseStartDate named startDate 0..1 MS
-* extension contains PhaseEndDate named endDate 0..1 MS
-* extension contains Description named description 0..1 MS
-
 Profile: DiseasePhase
-Parent: Phase
+Parent: TreatmentPhase
 Id: pedcan-disease-phase
 Description: "The phase of the cancer treatment process during which relevant observations were recorded. This profile is used across domains to frame the timing of these longitudinal observations and reduce the number of redundant variables needed to report similar concepts."
-* subject only Reference(Patient or ResearchSubject)  // which?
-* code = SCT#278174000 "Disease phase (attribute)"
-* extension[phaseName].value[x] from DiseasePhaseValueVS
+//* subject only Reference(Patient or ResearchSubject)  // which? //I'm not sure why but I'm getting an error, commenting out
+//* code = SCT#278174000 "Disease phase (attribute)"
+// * extension[phaseName].value[x] from DiseasePhaseValueVS //I'm not sure why but I'm getting an error, commenting out
 
 ValueSet: DiseasePhaseValueVS
 Id: pedcan-disease-phase-value-vs
@@ -34,42 +23,7 @@ Description: "Value set for phases of disease."
 //* SCT#255251009 "Acute phase (qualifier value)"  // substitute for "initial" ? I don't really think this makes sense?
 
 
-// Extensions
 
-Extension: PhaseName
-Id: pedcan-phase-name
-Title:  "Phase"
-Description: "The name of the phase during which relevant observations were recorded. While 'code' refers the general category of the phase (e.g., a condition phase), the phase name is more specific (e.g., acute phase)"
-* value[x] only CodeableConcept
-* value[x] 1..1
-
-Extension: PhaseNumber
-Id: pedcan-phase-number
-Title:  "Phase Number"
-Description: "This variable indicates the ordinal numbering of the Phase within its various subgroups (e.g., Induction 1, Induction 2, Induction 3, etc.). The observations across domains can therefore be organized longitudinally without the need for specific dates."
-* value[x] only unsignedInt   // start at 0 or 1?
-* value[x] 1..1
-
-Extension: PhaseStartDate
-Id: pedcan-phase-start-date
-Title:  "Phase Start Date"
-Description: "The date when an ordinally numbered phase was started."
-* value[x] only date
-* value[x] 1..1
-
-Extension: PhaseEndDate
-Id: pedcan-phase-end-date
-Title:  "End Date"
-Description: "The date when an ordinally numbered phase was ended."
-* value[x] only date
-* value[x] 1..1
-
-Extension: Description
-Id: pedcan-description
-Title:  "Description"
-Description: "Text description of the resource."
-* value[x] only string
-* value[x] 1..1
 
 
 

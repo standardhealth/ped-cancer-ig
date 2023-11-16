@@ -1,3 +1,5 @@
+/* we can remove this file. the current AE event work covers the data identified by the standards group 
+
 // Taken from CTC AE IG (https://build.fhir.org/ig/standardhealth/fsh-ae/index.html)
 // Simplified by removing certain non-minimal features:
 // 1. Expectation (whether the AE was expected)
@@ -974,3 +976,5 @@ Description: "The NCI Common Terminology Criteria for Adverse Events (CTCAE) is 
 * NCIT#C143873  "Thromboembolic event"
 * NCIT#C143930  "Vascular disorders - Other, specify"
 * NCIT#C54741  "Vasculitis"
+
+*/

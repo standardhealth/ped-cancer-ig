@@ -4,8 +4,8 @@ Profile: MedicalHistory
 Parent: Observation
 Id: pedcan-medical-history
 Title: "Medical History Profile"
-Description: "General structure for capturing medical history. The user can use this profile in three ways: (1) free-form, listing any condition they wish to highlight as significant medical history, or (2) use disease categories defined for registry reporting purposes, such as those defined by Center for International Blood and Marrow Transplant Research (CIBMTR)."
-//* ^extension[FMM].valueInteger = 1
+Description: "General structure for capturing medical history. The user can use this profile in three ways: (1) free-form, listing any condition they wish to highlight as significant medical history, or (2) use disease categories."
+* ^extension[FMM].valueInteger = 1
 * code = SCT#417662000 // History of clinical finding in subject (situation)
 * focus only Reference(PrimaryCancerCondition)
 * focus ^short = "The Index Condition"
@@ -24,6 +24,7 @@ Description: "General structure for capturing medical history. The user can use 
 * insert NotUsed(device)
 * insert NotUsed(hasMember)
 * insert NotUsed(component)
+* insert NotUsed(method)
 * insert NotUsed(value[x]) //since there's no score or index, I don't think a value would ever be needed?
 
 

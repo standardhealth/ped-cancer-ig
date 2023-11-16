@@ -1,11 +1,14 @@
 Alias:   USCoreObservationLab = http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab
 Alias:   USCoreCondition = http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns
 
+
+//Extent of Margin//
+
 Profile: SurgicalTumorMargin
 Parent: USCoreObservationLab
 Id: pedcan-surgical-tumor-margin
 Title: "Surgical Margin"
-Description: "Result of macro- or microscopic examination of the margins of a resected tumor."
+Description: "Result of microscopic examination of the margins of a resected tumor."
 * code = SCT#395536008 "Surgical margin finding (finding)"
 * value[x] only CodeableConcept
 * value[x] from SurgicalMarginVS
@@ -24,6 +27,8 @@ Description:  "Codes describing the result of macro- or microscopic examination 
 * insert SNOMEDCopyrightForVS
 * SCT#442479004	"Surgical margins of excised lesion not clear"
 * SCT#55182004 "Surgical margins free of tumor"
+
+
 
 
 /* Not high priority
@@ -69,9 +74,43 @@ Description: "Codes describing the degree of CNS involvement at the time of leuk
 
 
 
+/*
+Extension: ExtentOfResection
+Id: pedcan-extent-of-resection
+Title: "Extent of Resection"
+Description: "The purpose of a treatment, medication, or procedure."
+* insert ExtensionContext(DomainResource)
+* insert ExtensionContext(Extension)
+* ^extension[FMM].valueInteger = 4
+* value[x] only CodeableConcept
+* value[x] from ExtentOfResectionVS (required)
+* value[x] 1..1
+*/
 
 
 
+/* remvove - created surgical resection profile
 
+//Extent of Resection//
 
+Profile: ExtentOfResection
+Parent: USCoreObservationLab
+Id: pedcan-extent-of-resection
+Title: "Extent of Resection"
+Description: "Extent of Resection"
+* code = SCT#246160008 "Extent of Resection (attribute)"
+* partOf only Reference(CancerRelatedSurgicalProcedure) 
+* value[x] only CodeableConcept
+* value[x] from ExtentOfResectionVS (required)
+* value[x] 1..1 MS
+
+ValueSet: ExtentOfResectionVS
+Id: pedcan-extent-of-resection-vs
+Title: "Extent of Resection Value Set"
+Description: "Extent of resection"
+* ^extension[FMM].valueInteger = 3
+* NCIT#C131672 "Gross Total Resection"
+* NCIT#C175027 "Complete Resection"
+* NCIT#C131680 "Partial Resection"
+* NCIT#C185521 "Equivocal Complete Resection" */
 

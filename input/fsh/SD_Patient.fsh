@@ -1,8 +1,5 @@
-Profile: LanskyPerformanceStatus
-Parent:  USCoreClinicalTest
-Id: pedcan-lansky-performance-status
-Title:  "Lansky Performance Status Profile"
-Description:  "The Lansky Play-Performance Status for patients under 16 years old."
+RuleSet: PerformanceStatusCommonRules
+* ^extension[FMM].valueInteger = 4
 * subject 1..1
 * insert NotUsed(bodySite)
 * insert NotUsed(specimen)
@@ -12,12 +9,20 @@ Description:  "The Lansky Play-Performance Status for patients under 16 years ol
 * basedOn only Reference (ServiceRequest or CarePlan)
 * partOf only Reference (Procedure)
 * subject only Reference(CancerPatient)
-* subject ^definition = "Pediatric patient whose performance status is recorded."
+* subject ^definition = "Patient whose performance status is recorded."
 * effective[x] only dateTime or Period
-// Use the same MS set as EGOG and Karnofsky
+// EGOG and Karnofsky have exactly the same set of MS
 * status and code and subject and effective[x] and value[x] and interpretation MS
+
+Profile: LanskyPlayPerformanceStatus
+Parent:  USCoreClinicalTest
+Id: pedcan-lansky-play-performance-status
+Title:  "Lansky Play Performance Status Profile"
+Description:  "The Lansky Play-Performance Status for children is a parent-rated instrument which records usual play activity as the index of performance. It is similar to the Karnofsky Performance Scale for adults (Definition from: [NCI Thesaurus](https://ncithesaurus.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C38144&ns=ncit))."
+* insert PerformanceStatusCommonRules
 * code = NCIT#C38144 // Lansky Play-Performance Status
-* value[x] from LanskyPerformanceStatusVS
+* value[x] only integer 
+* interpretation from LanskyPerformanceStatusVS (required)
 
 ValueSet: LanskyPerformanceStatusVS
 Id: pedcan-lansky-vs
@@ -34,6 +39,41 @@ Description: "Value set for Lansky Play-Performance performance status."
 * NCIT#C69424 "Lansky Performance Status 80"
 * NCIT#C69425 "Lansky Performance Status 90"
 * NCIT#C69426 "Lansky Performance Status 100" 
+
+Profile: DeauvilleScore
+Id: pedcan-deauville-score
+Parent: USCoreObservationImaging
+Title: "Deauville Score Profile"
+Description: "Profile for Deauville Score. A 5 point scale devised to assess the response to treatment of Hodgkin and aggressive Non-Hodgkin lymphoma."
+* code = SCT#708895006 "Deauville five point scale (assessment scale)"
+* basedOn only Reference(CarePlan or MedicationRequest or ServiceRequest)
+* partOf only Reference(MedicationAdministration or MedicationDispense or MedicationStatement or Procedure or ImagingStudy)
+* performer only Reference(Practitioner or PractitionerRole or Organization or CareTeam)
+* subject only Reference(CancerPatient)
+* subject ^definition = "The patient associated with the Deauville Score."
+* value[x] only CodeableConcept
+* value[x] from DeauvilleScoreVS (required)
+* focus only Reference(PrimaryCancerCondition)
+* focus ^short = "The cancer condition associated with the Deauville Score"
+* focus ^definition = "Deauville Score is associated with a particular primary cancer condition. Observation.focus is used to point back to that condition."
+* status and code and subject and effective[x] and value[x] and focus MS
+* insert NotUsed (specimen)
+
+
+ValueSet: DeauvilleScoreVS
+Id: pedcan-deauville-score-vs
+Title: "Deauville Score Value Set"
+Description: "Codes indicating the value of the Deauville assessment."
+* ^experimental = false
+* NCIT#C99728 "London Deauville Criteria Point Scale 1"
+* NCIT#C99747 "London Deauville Criteria Point Scale 2"
+* NCIT#C99748 "London Deauville Criteria Point Scale 3"
+* NCIT#C99749 "London Deauville Criteria Point Scale 4"
+* NCIT#C99750 "London Deauville Criteria Point Scale 5"
+* NCIT#C136879 "London Deauville Criteria Point Scale X"
+
+
+
 
 Profile: BodySurfaceArea
 Parent: USCoreVitalSignsProfile
@@ -61,6 +101,12 @@ Description: "Methods for calculating body surface area from height and weight. 
 * DCM#122268 "BSA = 0.008883*WT^0.444*HT^0.663"
 * DCM#122269 "BSA = 0.038189*WT^0.423*HT^0.362"
 * DCM#122270 "BSA = 0.009568*WT^0.473*HT^0.655"
+
+
+
+
+
+
 
 
 // The following is not needed. If Patient.deceased is present, then patient is dead. Otherwise, the LKSS is alive (i.e., subject is assumed alive unless known dead)
