@@ -1,9 +1,3 @@
-Profile: CombinedSurgery
-Parent: CancerRelatedSurgicalProcedure
-Id: pedcan-combined-surgery
-Title: "Combined Surgery"
-Description: "A surgery that involves more than one type of surgical procedure, for example, resection and reconstruction."
-
 Profile: SurgicalResectionProcedure
 Parent: CancerRelatedSurgicalProcedure
 Id: pedcan-surgical-resection-procedure
@@ -12,21 +6,7 @@ Description: "Surgery to remove tissue or part or all of an organ or limb due to
 * code from SurgicalResectionProcedureVS
 * outcome from SurgicalResectionOutcomeVS
 
-Profile: SurgicalReconstructionProcedure
-Parent: CancerRelatedSurgicalProcedure
-Id: pedcan-surgical-reconstruction-procedure
-Title: "Surgical Reconstruction Procedure"
-Description: "Surgery to restore functionality or appearance following cancer surgery. Can be part of a surgical procedure that involves other steps, such as resection."  // Cancer surgery only?
-* code from SurgicalReconstructionProcedureVS
-
-Profile: SurgicalAmputationProcedure
-Parent: CancerRelatedSurgicalProcedure
-Id: pedcan-surgical-amputation-procedure
-Title: "Surgical Amputation Procedure"
-Description: "Surgery to remove a limb (arm or leg) or other body part because of cancer. Can be part of a surgical procedure that involves other steps, such as reconstruction."  // Cancer surgery only?
-* code from SurgicalAmputationProcedureVS
-
-/*--- VALUE SETS ----*/
+//--- VALUE SETS ----//
 
 ValueSet: SurgicalResectionProcedureVS
 Id: pedcan-surgical-resection-procedure-vs
@@ -42,6 +22,30 @@ Description:  "Codes that describe the macroscopic outcome surgical resections. 
 * ^experimental = true
 * NCIT#C131672 "Gross Total Resection"
 * NCIT#C131680 "Partial Resection"
+//remove vs overlap with margins VS * NCIT#C185521 "Equivocal Complete Resection" // 
+// remove bc overlap with margins VS * NCIT#C175027 "Complete Resection" //
+
+
+/* don't need based on team deep dive
+Profile: CombinedSurgery
+Parent: CancerRelatedSurgicalProcedure
+Id: pedcan-combined-surgery
+Title: "Combined Surgery"
+Description: "A surgery that involves more than one type of surgical procedure, for example, resection and reconstruction."
+
+Profile: SurgicalReconstructionProcedure
+Parent: CancerRelatedSurgicalProcedure
+Id: pedcan-surgical-reconstruction-procedure
+Title: "Surgical Reconstruction Procedure"
+Description: "Surgery to restore functionality or appearance following cancer surgery. Can be part of a surgical procedure that involves other steps, such as resection."  // Cancer surgery only?
+* code from SurgicalReconstructionProcedureVS
+
+Profile: SurgicalAmputationProcedure
+Parent: CancerRelatedSurgicalProcedure
+Id: pedcan-surgical-amputation-procedure
+Title: "Surgical Amputation Procedure"
+Description: "Surgery to remove a limb (arm or leg) or other body part because of cancer. Can be part of a surgical procedure that involves other steps, such as reconstruction."  // Cancer surgery only?
+* code from SurgicalAmputationProcedureVS 
 
 ValueSet: SurgicalReconstructionProcedureVS
 Id: pedcan-surgical-reconstruction-procedure-vs
@@ -55,7 +59,7 @@ Id: pedcan-surgical-amputation-procedure-vs
 Title: "Surgical Amputation Procedure Value Set"
 Description:  "Codes that describe surgical amputation."
 * insert SNOMEDCopyrightForVS
-* include codes from system SCT where concept is-a #81723002 "Amputation (procedure)"
+* include codes from system SCT where concept is-a #81723002 "Amputation (procedure)" */
 
 
 /* not high priority
